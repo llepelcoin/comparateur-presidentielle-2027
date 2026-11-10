@@ -27,6 +27,8 @@
   .card p { font-size: .85rem; line-height: 1.5; color: #334155; margin: 0; }
   .card .src { margin-top: 8px; font-size: .75rem; }
   .card .src a { color: #2563eb; }
+  .chiffres { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chiffre { display: inline-block; font-size: .75rem; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; border-radius: 8px; padding: 3px 10px; }
   .card .del { position: absolute; top: 8px; right: 10px; color: #cbd5e1; cursor: pointer; background: none; border: none; font-size: .85rem; }
   .card .del:hover { color: #ef4444; }
   .badge { font-size: .65rem; text-transform: uppercase; letter-spacing: .04em; background: #fef3c7; color: #b45309; border-radius: 999px; padding: 2px 8px; margin-left: auto; }
@@ -85,17 +87,29 @@ var CANDIDATES = [
 
 var INITIAL_PROPOSITIONS = [
   { id: "p1", candidateId: "melenchon", themeId: "ecologie",
-    text: "Programme structuré autour de la « planification écologique », point de départ de l'action publique (5e édition de L'Avenir en commun, 1069 mesures).",
-    source: { label: "élection.fr / Le Monde, 6 nov. 2026", url: "https://xn--lection-9xa.fr/actualite/lfi-publie-programme-avenir-en-commun-6-novembre-2026.html" } },
+    text: "Programme structuré autour de la « planification écologique », point de départ de l'action publique (5e édition de L'Avenir en commun).",
+    chiffres: [{ valeur: "1 069", contexte: "mesures au programme" }],
+    sources: [
+      { label: "élection.fr, 6 nov. 2026", url: "https://xn--lection-9xa.fr/actualite/lfi-publie-programme-avenir-en-commun-6-novembre-2026.html" },
+      { label: "Le Monde, 6 nov. 2026", url: "https://www.lemonde.fr" }
+    ] },
   { id: "p2", candidateId: "retailleau", themeId: "ecologie",
-    text: "Cap « atténuer et adapter » : faire reculer les énergies fossiles de 57% à 43% de la consommation d'ici 2035, sans augmenter le prix de l'électricité.",
-    source: { label: "franceinfo, sept. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" } },
+    text: "Cap « atténuer et adapter » : faire reculer les énergies fossiles, sans augmenter le prix de l'électricité.",
+    chiffres: [{ valeur: "57% → 43%", contexte: "part des énergies fossiles, d'ici 2035" }],
+    sources: [
+      { label: "franceinfo, sept. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" }
+    ] },
   { id: "p3", candidateId: "glucksmann", themeId: "ecologie",
     text: "« Révolution écologique » : développement rapide des renouvelables, électrification des usages, leasing social sur les voitures électriques, rénovation thermique des bâtiments, politique du train, agroécologie. Sortie des énergies fossiles comme « clé de voûte ».",
-    source: { label: "franceinfo / Le Monde, août 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" } },
+    sources: [
+      { label: "franceinfo, sept. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" },
+      { label: "Le Monde, 26 août 2026", url: "https://www.lemonde.fr" }
+    ] },
   { id: "p4", candidateId: "polony", themeId: "economie",
     text: "Prioriser la production française dans la commande publique ; supprimer les aides aux entreprises non conditionnées à une production sur le sol français.",
-    source: { label: "AFP, 14 oct. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/portraits-qui-sont-les-candidats-declares-a-l-election-presidentielle-de-2027_8208032.html" } }
+    sources: [
+      { label: "AFP, 14 oct. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/portraits-qui-sont-les-candidats-declares-a-l-election-presidentielle-de-2027_8208032.html" }
+    ] }
 ];
 
 var STORAGE_KEY = "pres2027_props_v1";
@@ -124,16 +138,32 @@ var app = document.getElementById("app");
 function card(p) {
   var c = cand(p.candidateId);
   var src = "";
-  if (p.source) {
-    src = p.source.url
-      ? '<div class="src"><a href="' + esc(p.source.url) + '" target="_blank" rel="noreferrer">↗ ' + esc(p.source.label) + "</a></div>"
-      : '<div class="src" style="color:#94a3b8">Source : ' + esc(p.source.label) + "</div>";
+  var sources = p.sources || (p.source ? [p.source] : []);
+  if (sources.length > 0) {
+    src = '<div class="src">';
+    for (var i = 0; i < sources.length; i++) {
+      var s = sources[i];
+      src += s.url
+        ? '<a href="' + esc(s.url) + '" target="_blank" rel="noreferrer">↗ ' + esc(s.label) + "</a>"
+        : '<span style="color:#94a3b8">' + esc(s.label) + "</span>";
+      if (i < sources.length - 1) src += ' &nbsp;·&nbsp; ';
+    }
+    src += "</div>";
+  }
+  var chf = "";
+  var chiffres = p.chiffres || [];
+  if (chiffres.length > 0) {
+    chf = '<div class="chiffres">';
+    for (var i = 0; i < chiffres.length; i++) {
+      chf += '<span class="chiffre">📊 <b>' + esc(chiffres[i].valeur) + "</b>" + (chiffres[i].contexte ? " " + esc(chiffres[i].contexte) : "") + "</span>";
+    }
+    chf += "</div>";
   }
   var del = p.mine ? '<button class="del" title="Supprimer" onclick="removeProp(\'' + p.id + '\')">✕</button>' : "";
   var badge = p.mine ? '<span class="badge">ma note</span>' : "";
   return '<div class="card">' + del +
     '<div class="who"><span class="dot" style="background:' + c.color + '"></span><b>' + esc(c.name) + "</b><span>" + esc(c.party) + "</span>" + badge + "</div>" +
-    "<p>" + esc(p.text) + "</p>" + src + "</div>";
+    "<p>" + esc(p.text) + "</p>" + chf + src + "</div>";
 }
 
 function render() {
@@ -213,8 +243,12 @@ function render() {
       html += '<option value="' + THEMES[i].id + '">' + THEMES[i].icon + " " + THEMES[i].label + "</option>";
     html += '</select></label></div>' +
       '<label>Proposition / position<textarea id="f-text" rows="3" placeholder="Ex. : Ramener l\'âge légal de départ à la retraite à 62 ans…"></textarea></label>' +
-      '<div class="row2"><label>Source (optionnel)<input id="f-srclabel" placeholder="Ex. : interview BFM, 12 nov. 2026" /></label>' +
-      '<label>Lien (optionnel)<input id="f-srcurl" placeholder="https://…" /></label></div>' +
+      '<div class="row2"><label>Source 1 (optionnel)<input id="f-srclabel1" placeholder="Ex. : interview BFM, 12 nov. 2026" /></label>' +
+      '<label>Lien source 1 (optionnel)<input id="f-srcurl1" placeholder="https://…" /></label></div>' +
+      '<div class="row2"><label>Source 2 (optionnel)<input id="f-srclabel2" placeholder="Ex. : programme officiel, p. 12" /></label>' +
+      '<label>Lien source 2 (optionnel)<input id="f-srcurl2" placeholder="https://…" /></label></div>' +
+      '<div class="row2"><label>Donnée chiffrée (optionnel)<input id="f-chval" placeholder="Ex. : -50 Md€, 57% → 43%…" /></label>' +
+      '<label>Contexte du chiffre<input id="f-chctxe" placeholder="Ex. : part des énergies fossiles d\'ici 2035" /></label></div>' +
       '<button class="btn" type="submit">Enregistrer</button>' +
       '<span class="flash" id="flash"></span></form>' +
       '<div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">' +
@@ -239,13 +273,19 @@ window.addProp = function (ev) {
   var text = document.getElementById("f-text").value.trim();
   var fl = document.getElementById("flash");
   if (!text) { fl.textContent = "⚠️ Écris d'abord une proposition."; return false; }
-  var srcLabel = document.getElementById("f-srclabel").value.trim();
+  var sources = [];
+  [["f-srclabel1", "f-srcurl1"], ["f-srclabel2", "f-srcurl2"]].forEach(function (ids) {
+    var lbl = document.getElementById(ids[0]).value.trim();
+    if (lbl) sources.push({ label: lbl, url: document.getElementById(ids[1]).value.trim() || null });
+  });
+  var chval = document.getElementById("f-chval").value.trim();
   props.push({
     id: "u" + Date.now(),
     candidateId: document.getElementById("f-cand").value,
     themeId: document.getElementById("f-theme").value,
     text: text,
-    source: srcLabel ? { label: srcLabel, url: document.getElementById("f-srcurl").value.trim() || null } : null,
+    sources: sources,
+    chiffres: chval ? [{ valeur: chval, contexte: document.getElementById("f-chctxe").value.trim() }] : [],
     mine: true
   });
   persist(); render();
