@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Comparateur des programmes — Présidentielle 2027</title>
+<style>
+  :root { font-family: Inter, system-ui, -apple-system, sans-serif; color: #0f172a; background: #f8fafc; }
+  * { box-sizing: border-box; }
+  body { margin: 0; padding: 24px; }
+  .wrap { max-width: 1100px; margin: 0 auto; }
+  h1 { font-size: 1.4rem; margin: 0 0 4px; }
+  .sub { color: #64748b; font-size: .85rem; margin: 0; }
+  .tiny { color: #94a3b8; font-size: .75rem; margin: 4px 0 0; }
+  nav { display: flex; flex-wrap: wrap; gap: 8px; margin: 20px 0; }
+  .tab { padding: 8px 16px; border-radius: 10px; border: 1px solid #e2e8f0; background: #fff; color: #475569; font-size: .85rem; cursor: pointer; }
+  .tab.active { background: #0f172a; color: #fff; border-color: #0f172a; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+  .chip { padding: 6px 12px; border-radius: 999px; border: 1px solid #e2e8f0; background: #fff; color: #475569; font-size: .82rem; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+  .chip.active { background: #0f172a; color: #fff; border-color: #0f172a; }
+  .dot { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 12px; }
+  .card { position: relative; background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 14px; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  .card .who { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; flex-wrap: wrap; }
+  .card .who b { font-size: .85rem; }
+  .card .who span { font-size: .75rem; color: #94a3b8; }
+  .card p { font-size: .85rem; line-height: 1.5; color: #334155; margin: 0; }
+  .card .src { margin-top: 8px; font-size: .75rem; }
+  .nums { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .num-chip { font-size: .72rem; background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; border-radius: 999px; padding: 3px 10px; }
+  .card .src a { color: #2563eb; }
+  .card .del { position: absolute; top: 8px; right: 10px; color: #cbd5e1; cursor: pointer; background: none; border: none; font-size: .85rem; }
+  .card .del:hover { color: #ef4444; }
+  .badge { font-size: .65rem; text-transform: uppercase; letter-spacing: .04em; background: #fef3c7; color: #b45309; border-radius: 999px; padding: 2px 8px; margin-left: auto; }
+  h2 { font-size: 1.05rem; margin: 0 0 12px; }
+  h3.sec { font-size: .75rem; text-transform: uppercase; letter-spacing: .05em; color: #64748b; margin: 18px 0 8px; }
+  .empty { border: 2px dashed #e2e8f0; border-radius: 12px; padding: 32px; text-align: center; color: #94a3b8; font-size: .85rem; }
+  table { width: 100%; border-collapse: collapse; font-size: .75rem; background: #fff; border-radius: 12px; overflow: hidden; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+  th { background: #f8fafc; padding: 8px; font-weight: 600; color: #475569; }
+  th.c, td.c { text-align: center; }
+  td { padding: 8px; border-top: 1px solid #f1f5f9; }
+  .num { display: inline-block; min-width: 20px; padding: 1px 6px; border-radius: 999px; background: #0f172a; color: #fff; font-weight: 600; }
+  .num.zero { background: #f1f5f9; color: #cbd5e1; }
+  form { background: #fff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px; max-width: 700px; }
+  label { display: block; font-size: .7rem; text-transform: uppercase; letter-spacing: .04em; color: #64748b; font-weight: 600; margin-bottom: 16px; }
+  select, input, textarea { width: 100%; margin-top: 4px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: .85rem; font-family: inherit; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .btn { background: #0f172a; color: #fff; border: none; padding: 9px 18px; border-radius: 8px; font-size: .85rem; cursor: pointer; }
+  .btn.ghost { background: #fff; color: #475569; border: 1px solid #cbd5e1; }
+  .flash { font-size: .85rem; margin-left: 10px; }
+  .note { background: #f0f9ff; border: 1px solid #bae6fd; color: #075985; border-radius: 12px; padding: 12px 16px; font-size: .8rem; margin-bottom: 16px; }
+  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: .72rem; }
+  @media (max-width: 600px) { .row2 { grid-template-columns: 1fr; } body { padding: 14px; } }
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+"use strict";
+
+// ================= DONNÉES =================
+// Modifie ces blocs pour mettre l'outil à jour.
+var THEMES = [
+  { id: "economie", label: "Économie & pouvoir d'achat", icon: "💰" },
+  { id: "ecologie", label: "Écologie & énergie", icon: "🌱" },
+  { id: "travail", label: "Travail & retraites", icon: "🏭" },
+  { id: "securite", label: "Sécurité & immigration", icon: "🛡️" },
+  { id: "institutions", label: "Institutions & démocratie", icon: "🏛️" },
+  { id: "sante", label: "Santé", icon: "🏥" },
+  { id: "education", label: "Éducation & jeunesse", icon: "🎓" },
+  { id: "finances", label: "Finances publiques", icon: "📊" },
+  { id: "international", label: "International & défense", icon: "🌍" }
+];
+
+var CANDIDATES = [
+  { id: "lepen", name: "Marine Le Pen", party: "Rassemblement National", bloc: "Extrême droite", color: "#0d3b66" },
+  { id: "knafo", name: "Sarah Knafo", party: "Reconquête!", bloc: "Extrême droite", color: "#1a4a7a" },
+  { id: "retailleau", name: "Bruno Retailleau", party: "Les Républicains", bloc: "Droite", color: "#2563a8" },
+  { id: "philippe", name: "Édouard Philippe", party: "Horizons", bloc: "Droite / centre droit", color: "#3b82c4" },
+  { id: "lisnard", name: "David Lisnard", party: "Nouvelle Énergie", bloc: "Droite", color: "#5290cc" },
+  { id: "attal", name: "Gabriel Attal", party: "Renaissance", bloc: "Centre", color: "#7aa8d9" },
+  { id: "glucksmann", name: "Raphaël Glucksmann", party: "Place publique / PS (primaire)", bloc: "Centre gauche", color: "#e07a8f" },
+  { id: "tondelier", name: "Marine Tondelier", party: "Les Écologistes", bloc: "Gauche / écologistes", color: "#3fa06a" },
+  { id: "melenchon", name: "Jean-Luc Mélenchon", party: "La France insoumise", bloc: "Gauche", color: "#cc2444" },
+  { id: "polony", name: "Natacha Polony", party: "Sans étiquette (souverainiste)", bloc: "Souverainiste", color: "#8b5e4b" },
+  { id: "riner", name: "Teddy Riner", party: "Sans étiquette (société civile)", bloc: "Hors partis", color: "#c99700" }
+];
+
+var INITIAL_PROPOSITIONS = [
+  { id: "p1", candidateId: "melenchon", themeId: "ecologie",
+    text: "Programme structuré autour de la « planification écologique », point de départ de l'action publique (5e édition de L'Avenir en commun, 1069 mesures).",
+    source: { label: "élection.fr / Le Monde, 6 nov. 2026", url: "https://xn--lection-9xa.fr/actualite/lfi-publie-programme-avenir-en-commun-6-novembre-2026.html" } },
+  { id: "p2", candidateId: "retailleau", themeId: "ecologie",
+    text: "Cap « atténuer et adapter » : faire reculer les énergies fossiles de 57% à 43% de la consommation d'ici 2035, sans augmenter le prix de l'électricité.",
+    source: { label: "franceinfo, sept. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" } },
+  { id: "p3", candidateId: "glucksmann", themeId: "ecologie",
+    text: "« Révolution écologique » : développement rapide des renouvelables, électrification des usages, leasing social sur les voitures électriques, rénovation thermique des bâtiments, politique du train, agroécologie. Sortie des énergies fossiles comme « clé de voûte ».",
+    source: { label: "franceinfo / Le Monde, août 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" } },
+  { id: "p4", candidateId: "polony", themeId: "economie",
+    text: "Prioriser la production française dans la commande publique ; supprimer les aides aux entreprises non conditionnées à une production sur le sol français.",
+    source: { label: "AFP, 14 oct. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/portraits-qui-sont-les-candidats-declares-a-l-election-presidentielle-de-2027_8208032.html" } },
+  { id: "p5", candidateId: "melenchon", themeId: "travail",
+    text: "Hausse du Smic à 1 700 euros net ; abrogation de la réforme des retraites avec retour à un âge légal de départ à 62 ans et droit à la retraite à 60 ans à taux plein après 40 années de cotisation.",
+    chiffres: [{ valeur: "1 700 €", contexte: "Smic net visé" }, { valeur: "60 ans", contexte: "taux plein après 40 annuités" }],
+    sources: [{ label: "RTL, 6 nov. 2026", url: "https://www.rtl.fr/actu/politique/smic-a-1-700-euros-retraite-a-60-ans-nucleaire-ce-que-prevoient-les-1-069-mesures-du-programme-de-jean-luc-melenchon-pour-2027-7900693627" }, { label: "AFP, 6 nov. 2026", url: "search-result://news-H2NdDCEQ" }] },
+  { id: "p6", candidateId: "melenchon", themeId: "sante",
+    text: "« 100 % Sécu » : prise en charge intégrale des dépenses de santé par la Sécurité sociale, pour supprimer les restes à charge.",
+    sources: [{ label: "AFP, 6 nov. 2026", url: "search-result://news-H2NdDCEQ" }, { label: "RTL, 6 nov. 2026", url: "https://www.rtl.fr/actu/politique/smic-a-1-700-euros-retraite-a-60-ans-nucleaire-ce-que-prevoient-les-1-069-mesures-du-programme-de-jean-luc-melenchon-pour-2027-7900693627" }] },
+  { id: "p7", candidateId: "melenchon", themeId: "international",
+    text: "Sur l'Ukraine : refus d'une paix « avec des concessions territoriales » sans consultation — toute modification de frontière (Donbass) devrait être conditionnée à un vote des populations concernées.",
+    sources: [{ label: "AFP, 8 nov. 2026", url: "search-result://news-OSSIkN8g" }] },
+  { id: "p8", candidateId: "riner", themeId: "travail",
+    text: "Estime qu'une réforme des retraites est nécessaire « car le système actuel ne tient pas ».",
+    sources: [{ label: "AFP, 9 nov. 2026", url: "search-result://news-qKHivwS5" }, { label: "AFP, 9 nov. 2026", url: "search-result://news-u0rAUTHU" }] },
+  { id: "p9", candidateId: "riner", themeId: "economie",
+    text: "Augmenter le salaire net via des allégements de charges et permettre aux Français qui le veulent d'augmenter leurs revenus « en travaillant plus ».",
+    sources: [{ label: "AFP, 9 nov. 2026", url: "search-result://news-qKHivwS5" }, { label: "AFP, 9 nov. 2026", url: "search-result://news-u0rAUTHU" }] },
+  { id: "p10", candidateId: "retailleau", themeId: "institutions",
+    text: "Ralliement à l'organisation d'une primaire élargie de la droite et du centre, qu'il situe dans la première quinzaine de février 2027 « au plus tard », si Édouard Philippe y participe.",
+    sources: [{ label: "AFP, 6 nov. 2026", url: "search-result://news-mVu1jAiy" }, { label: "AFP, 9 nov. 2026", url: "search-result://news-wBaxSSIF" }] },
+  { id: "p11", candidateId: "philippe", themeId: "institutions",
+    text: "Rejette fermement le principe d'une primaire de la droite et du centre, alors que 66 parlementaires (majorité Renaissance, UDI, MoDem) en appellent à l'organisation d'un candidat unique.",
+    sources: [{ label: "AFP, 7 nov. 2026", url: "search-result://news-D82NwD9E" }] }
+];
+
+var STORAGE_KEY = "pres2027_props_v1";
+
+// ============ ÉTAT ============
+var state = { tab: "themes", theme: THEMES[0].id, cand: CANDIDATES[0].id };
+var props = (function () {
+  try {
+    var saved = localStorage.getItem(STORAGE_KEY);
+    if (saved) return JSON.parse(saved);
+  } catch (e) {}
+  return INITIAL_PROPOSITIONS.slice();
+})();
+function persist() {
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(props)); } catch (e) {}
+}
+function esc(s) {
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+function cand(id) { for (var i = 0; i < CANDIDATES.length; i++) if (CANDIDATES[i].id === id) return CANDIDATES[i]; return null; }
+function theme(id) { for (var i = 0; i < THEMES.length; i++) if (THEMES[i].id === id) return THEMES[i]; return null; }
+
+// ============ RENDU ============
+var app = document.getElementById("app");
+
+function card(p) {
+  var c = cand(p.candidateId);
+  var src = "";
+  var srcList = (p.sources && p.sources.length) ? p.sources : (p.source ? [p.source] : []);
+  for (var s = 0; s < srcList.length; s++) {
+    var so = srcList[s];
+    src += so.url
+      ? '<div class="src"><a href="' + esc(so.url) + '" target="_blank" rel="noreferrer">↗ ' + esc(so.label) + "</a></div>"
+      : '<div class="src" style="color:#94a3b8">Source : ' + esc(so.label) + "</div>";
+  }
+  var nums = "";
+  if (p.chiffres && p.chiffres.length) {
+    nums = '<div class="nums">';
+    for (var n = 0; n < p.chiffres.length; n++)
+      nums += '<span class="num-chip"><b>' + esc(p.chiffres[n].valeur) + "</b> · " + esc(p.chiffres[n].contexte || "") + "</span>";
+    nums += "</div>";
+  }
+  var del = p.mine ? '<button class="del" title="Supprimer" onclick="removeProp(\'' + p.id + '\')">✕</button>' : "";
+  var badge = p.mine ? '<span class="badge">ma note</span>' : "";
+  return '<div class="card">' + del +
+    '<div class="who"><span class="dot" style="background:' + c.color + '"></span><b>' + esc(c.name) + "</b><span>" + esc(c.party) + "</span>" + badge + "</div>" +
+    "<p>" + esc(p.text) + "</p>" + nums + src + "</div>";
+}
+
+function render() {
+  var html = "<h1>🇫🇷 Comparateur des programmes — Présidentielle 2027</h1>" +
+    '<p class="sub">1er tour : 18 avril 2027 · 2nd tour : 2 mai 2027 · Parrainages avant le 12 mars 2027</p>
+' +
+    '<p class="tiny">Outil personnel d\'analyse : qui propose quoi, thème par thème. ' + props.length + " proposition" + (props.length > 1 ? "s" : "") + " enregistrée" + (props.length > 1 ? "s" : "") + " · tes notes sont sauvegardées dans ce navigateur.</p>";
+
+  var tabs = [["themes", "📂 Par thème"], ["candidats", "👤 Par candidat"], ["matrice", "🧮 Vue d'ensemble"], ["ajouter", "➕ Ajouter"]];
+  html += '<nav>';
+  for (var i = 0; i < tabs.length; i++)
+    html += '<button class="tab' + (state.tab === tabs[i][0] ? " active" : "") + '" onclick="setTab(\'' + tabs[i][0] + "')\">" + tabs[i][1] + "</button>";
+  html += "</nav>";
+
+  if (state.tab === "themes") {
+    html += '<div class="chips">';
+    for (var i = 0; i < THEMES.length; i++)
+      html += '<button class="chip' + (state.theme === THEMES[i].id ? " active" : "") + '" onclick="setTheme(\'' + THEMES[i].id + "')\">" + THEMES[i].icon + " " + THEMES[i].label + "</button>";
+    html += "</div>";
+    var t = theme(state.theme);
+    html += "<h2>" + t.icon + " " + t.label + " — propositions</h2>";
+    var list = props.filter(function (p) { return p.themeId === state.theme; });
+    html += '<div class="grid">';
+    for (var i = 0; i < list.length; i++) html += card(list[i]);
+    html += "</div>";
+    if (list.length === 0)
+      html += '<div class="empty">Aucune proposition enregistrée sur ce thème.<br>Ajoute-en via l\'onglet « ➕ Ajouter ».</div>';
+  }
+
+  if (state.tab === "candidats") {
+    html += '<div class="chips">';
+    for (var i = 0; i < CANDIDATES.length; i++) {
+      var c = CANDIDATES[i];
+      html += '<button class="chip' + (state.cand === c.id ? " active" : "") + '" onclick="setCand(\'' + c.id + "')\"><span class=\"dot\" style=\"background:" + c.color + '"></span>' + esc(c.name) + "</button>";
+    }
+    html += "</div>";
+    var c = cand(state.cand);
+    html += '<div class="card" style="margin-bottom:16px"><div class="who"><span class="dot" style="background:' + c.color + '"></span><h2 style="margin:0"
+>' + esc(c.name) + "</h2></div><p>" + esc(c.party) + " · " + esc(c.bloc) + "</p></div>";
+    var any = false;
+    for (var j = 0; j < THEMES.length; j++) {
+      var list = props.filter(function (p) { return p.themeId === THEMES[j].id && p.candidateId === state.cand; });
+      if (list.length === 0) continue;
+      any = true;
+      html += '<h3 class="sec">' + THEMES[j].icon + " " + THEMES[j].label + "</h3><div class=\"grid\">";
+      for (var i = 0; i < list.length; i++) html += card(list[i]);
+      html += "</div>";
+    }
+    if (!any) html += '<div class="empty">Aucune proposition enregistrée pour ce candidat. Utilise l\'onglet « ➕ Ajouter ».</div>';
+  }
+
+  if (state.tab === "matrice") {
+    html += "<h2>🧮 Vue d'ensemble de la collecte</h2>" +
+      '<p class="sub" style="margin-bottom:14px">Nombre de propositions par candidat et par thème.</p><table><thead><tr><th style="text-align:left">Candidat</th>';
+    for (var i = 0; i < THEMES.length; i++) html += "<th class=\"c\" title=\"" + esc(THEMES[i].label) + "\">" + THEMES[i].icon + "</th>";
+    html += '<th class="c">Σ</th></tr></thead><tbody>';
+    for (var i = 0; i < CANDIDATES.length; i++) {
+      var c = CANDIDATES[i], total = 0;
+      html += '<tr><td><span class="dot" style="background:' + c.color + '"></span> <b>' + esc(c.name) + "</b></td>";
+      for (var j = 0; j < THEMES.length; j++) {
+        var n = props.filter(function (p) { return p.candidateId === c.id && p.themeId === THEMES[j].id; }).length;
+        total += n;
+        html += '<td class="c">' + (n > 0 ? '<span class="num">' + n + "</span>" : '<span class="num zero">·</span>') + "</td>";
+      }
+      html += '<td class="c"><b>' + total + "</b></td></tr>";
+    }
+    html += "</tbody></table>";
+  }
+
+  if (state.tab === "ajouter") {
+    html += "<h2>➕ Ajouter une proposition</h2>" +
+      '<div class="note">💾 <b>Sauvegarde automatique</b> : tes notes sont conservées dans ce navigateur, même après fermeture. Utilise « Exporter » pour les transférer vers un autre appareil ou une autre personne (puis « Importer » de l\'autre côté).</div>' +
+      '<form onsubmit="return addProp(event)">' +
+      '<div class="row2"><label>Candidat<select id="f-cand">';
+    for (var i = 0; i < CANDIDATES.length; i++)
+      html += '<option value="' + CANDIDATES[i].id + '">' + esc(CANDIDATES[i].name) + " — " + esc(CANDIDATES[i].party) + "</option>";
+    html += '</select></label><label>Thème<select id="f-theme">';
+    for (var i = 0; i < THEMES.length; i++)
+      html += '<option value="' + THEMES[i].id + '">' + THEMES[i].icon + " " + THEMES[i].label + "</option>";
+    html += '</select></label></div>' +
+      '<label>Proposition / position<textarea id="f-text" rows="3" placeholder="Ex. : Ramener l\'âge légal de départ à la retraite à 62 ans…"></textarea></label>' +
+      '<div class="row2"><label>Source (optionnel)<input id="f-srclabel" placeholder="Ex. : interview BFM, 12 nov. 2026" /></label>' +
+      '<label>Lien (optionnel)<input id="f-srcurl" placeholder="https://…" /></label></div>' +
+      '<button class="btn" type="submit">Enregistrer</button>' +
+      '<span class="flash" id="flash"></span></form>' +
+      '<div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">' +
+      '<button class="btn ghost" onclick="exportJSON()">⬇ Exporter mes notes (JSON)</button>' +
+      '<button class="btn ghost" onclick="document.getElementById(\'imp\').click()">⬆ Importer des notes (JSON)</button>' +
+      '<input type="file" id="imp" accept=".json,application/json" style="display:none" onchange="importJSON(event)" />' +
+      '<button class="btn ghost" onclick="resetProps()">↺ Réinitialiser</button></div>' +
+      '<p class="tiny">Export/Import : transfère uniquement les propositions ajoutées manuellement ("ma note").</p>';
+  }
+
+  html += '<footer>Candidats déclarés recensés début novembre 2026 — la liste évolue (primaires, désistements possibles). Toujours vérifier les propositions dans les sources originales.</footer>';
+  app.innerHTML = html;
+}
+
+// ============ ACTIONS ============
+window.setTab = function (t) { state.tab = t; render(); };
+window.setTheme = function (t) { state.theme = t; state.tab = "themes"; render(); };
+window.setCand = function (c) { state.cand = c; state.tab = "candidats"; render(); };
+window.removeProp = function (id) { props = props.filter(function (p) { return p.id !== id; }); persist(); render(); };
+window.addProp = function (ev) {
+  ev.preventDefault();
+  var text = document.getElementById("f-text").value.trim();
+  var fl = document.getElementById("flash");
+  if (!text) { fl.textContent = "⚠️ Écris d'abord une proposition."; return false; }
+  var srcLabel = document.getElementById("f-srclabel").value.trim();
+  props.push({
+    id: "u" + Date.now(),
+    candidateId: document.getElementById("f-cand").value,
+    themeId: document.getElementById("f-theme").value,
+    text: text,
+    source: srcLabel ? { label: srcLabel, url: document.getElementById("f-srcurl").value.trim() || null } : null,
+    mine: true
+  });
+  persist(); render();
+  return false;
+};
+window.exportJSON = function () {
+  var mine = props.filter(function (p) { return p.mine; });
+  var blob = new Blob([JSON.stringify({ type: "pres2027-notes", propositions: mine }, null, 2)], { type: "application/json" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "notes-presidentielle-2027.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+window.importJSON = function (ev) {
+  var file = ev.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function () {
+    try {
+      var data = JSON.parse(reader.result);
+      var incoming = data.propositions || data;
+      if (!(incoming instanceof Array)) throw new Error("format");
+      var existing = {}; props.forEach(function (p) { existing[p.id] = true; });
+      var added = 0;
+      incoming.forEach(function (p) {
+        if (p && p.text && p.candidateId && !existing[p.id]) { p.mine
+ = true; props.push(p); added++; }
+      });
+      persist(); render();
+      alert("Import : " + added + " proposition(s) ajoutée(s).");
+    } catch (e) { alert("Fichier invalide."); }
+  };
+  reader.readAsText(file);
+  ev.target.value = "";
+};
+window.resetProps = function () {
+  if (confirm("Réinitialiser toutes les propositions aux données de base ? Tes notes personnelles seront supprimées.")) {
+    props = INITIAL_PROPOSITIONS.slice();
+    persist(); render();
+  }
+};
+
+render();
+</script>
+</body>
+</html>
