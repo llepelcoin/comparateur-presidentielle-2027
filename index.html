@@ -27,7 +27,8 @@
   .card p { font-size: .85rem; line-height: 1.5; color: #334155; margin: 0; }
   .card .src { margin-top: 8px; font-size: .75rem; }
   .nums { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
-  .num-chip { font-size: .72rem; background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; border-radius: 999px; padding: 3px 10px; }
+  .num-chip { font-size: .7
+2rem; background: #f1f5f9; border: 1px solid #e2e8f0; color: #334155; border-radius: 999px; padding: 3px 10px; }
   .card .src a { color: #2563eb; }
   .card .del { position: absolute; top: 8px; right: 10px; color: #cbd5e1; cursor: pointer; background: none; border: none; font-size: .85rem; }
   .card .del:hover { color: #ef4444; }
@@ -46,7 +47,8 @@
   select, input, textarea { width: 100%; margin-top: 4px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: .85rem; font-family: inherit; }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .btn { background: #0f172a; color: #fff; border: none; padding: 9px 18px; border-radius: 8px; font-size: .85rem; cursor: pointer; }
-  .btn.ghost { background: #fff; color: #475569; border: 1px solid #cbd5e1; }
+  .btn.ghost { background: #ff
+f; color: #475569; border: 1px solid #cbd5e1; }
   .flash { font-size: .85rem; margin-left: 10px; }
   .note { background: #f0f9ff; border: 1px solid #bae6fd; color: #075985; border-radius: 12px; padding: 12px 16px; font-size: .8rem; margin-bottom: 16px; }
   footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: .72rem; }
@@ -79,7 +81,8 @@ var CANDIDATES = [
   { id: "philippe", name: "Édouard Philippe", party: "Horizons", bloc: "Droite / centre droit", color: "#3b82c4" },
   { id: "lisnard", name: "David Lisnard", party: "Nouvelle Énergie", bloc: "Droite", color: "#5290cc" },
   { id: "attal", name: "Gabriel Attal", party: "Renaissance", bloc: "Centre", color: "#7aa8d9" },
-  { id: "glucksmann", name: "Raphaël Glucksmann", party: "Place publique / PS (primaire)", bloc: "Centre gauche", color: "#e07a8f" },
+  { id: "glucksmann", name: "Raphaël Glucksmann", party: "Place publique / PS (primaire)"
+, bloc: "Centre gauche", color: "#e07a8f" },
   { id: "tondelier", name: "Marine Tondelier", party: "Les Écologistes", bloc: "Gauche / écologistes", color: "#3fa06a" },
   { id: "melenchon", name: "Jean-Luc Mélenchon", party: "La France insoumise", bloc: "Gauche", color: "#cc2444" },
   { id: "polony", name: "Natacha Polony", party: "Sans étiquette (souverainiste)", bloc: "Souverainiste", color: "#8b5e4b" },
@@ -95,7 +98,8 @@ var INITIAL_PROPOSITIONS = [
     source: { label: "franceinfo, sept. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" } },
   { id: "p3", candidateId: "glucksmann", themeId: "ecologie",
     text: "« Révolution écologique » : développement rapide des renouvelables, électrification des usages, leasing social sur les voitures électriques, rénovation thermique des bâtiments, politique du train, agroécologie. Sortie des énergies fossiles comme « clé de voûte ».",
-    source: { label: "franceinfo / Le Monde, août 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" } },
+    source: { label: "franceinfo / Le Monde, août 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apoc
+alyptique_8174960.html" } },
   { id: "p4", candidateId: "polony", themeId: "economie",
     text: "Prioriser la production française dans la commande publique ; supprimer les aides aux entreprises non conditionnées à une production sur le sol français.",
     source: { label: "AFP, 14 oct. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/portraits-qui-sont-les-candidats-declares-a-l-election-presidentielle-de-2027_8208032.html" } },
@@ -108,7 +112,8 @@ var INITIAL_PROPOSITIONS = [
     sources: [{ label: "AFP, 6 nov. 2026", url: "search-result://news-H2NdDCEQ" }, { label: "RTL, 6 nov. 2026", url: "https://www.rtl.fr/actu/politique/smic-a-1-700-euros-retraite-a-60-ans-nucleaire-ce-que-prevoient-les-1-069-mesures-du-programme-de-jean-luc-melenchon-pour-2027-7900693627" }] },
   { id: "p7", candidateId: "melenchon", themeId: "international",
     text: "Sur l'Ukraine : refus d'une paix « avec des concessions territoriales » sans consultation — toute modification de frontière (Donbass) devrait être conditionnée à un vote des populations concernées.",
-    sources: [{ label: "AFP, 8 nov. 2026", url: "search-result://news-OSSIkN8g" }] },
+    sources: [{ label: "AFP, 8 nov. 2026", url: "search-result://news-OSSIkN8g" }] 
+},
   { id: "p8", candidateId: "riner", themeId: "travail",
     text: "Estime qu'une réforme des retraites est nécessaire « car le système actuel ne tient pas ».",
     sources: [{ label: "AFP, 9 nov. 2026", url: "search-result://news-qKHivwS5" }, { label: "AFP, 9 nov. 2026", url: "search-result://news-u0rAUTHU" }] },
@@ -120,7 +125,32 @@ var INITIAL_PROPOSITIONS = [
     sources: [{ label: "AFP, 6 nov. 2026", url: "search-result://news-mVu1jAiy" }, { label: "AFP, 9 nov. 2026", url: "search-result://news-wBaxSSIF" }] },
   { id: "p11", candidateId: "philippe", themeId: "institutions",
     text: "Rejette fermement le principe d'une primaire de la droite et du centre, alors que 66 parlementaires (majorité Renaissance, UDI, MoDem) en appellent à l'organisation d'un candidat unique.",
-    sources: [{ label: "AFP, 7 nov. 2026", url: "search-result://news-D82NwD9E" }] }
+    sources: [{ label: "AFP, 7 nov. 2026", url: "search-result://news-D82NwD9E" }] },
+  { id: "p12", candidateId: "attal", themeId: "economie",
+    text: "Faire de l'intelligence artificielle un levier de productivité et de hausse des salaires : « crédit d'impôt productivité » pour financer l'adoption de solutions IA dans les entreprises et formation de 20 millions de Français en trois ans.",
+    chiffres: [{ valeur: "20 millions", contexte: "Français formés à l'IA en 3 ans" }],
+    sources: [{ label: "AFP, 8 nov. 2026", url: "search-result://news-n0JKSVqp" }, { label: "franceinfo, 8 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/gabriel-attal-juge-siderant-le-peu-de-place-de-l-intelligence-artificielle-dans-la-presidentielle-cle-pour-faire-monter-les-salaires_8273348.html" }] },
+  { id: "p13", candidateId: "knafo", themeId: "finances",
+    text: "Supprimer 800 000 postes de fonctionnaires uniquement par le non-remplacement des départs naturels (sans licenciement), en préservant hôpital, police, gendarmerie et armée.",
+    chiffres: [{ valeur: "800 000", contexte: "postes supprimés" }, { valeur: "~40 Md€/an", contexte: "économies visées" }],
+    sources: [{ label: "20 Minutes, 8 nov. 2026", url: "https://www.20minutes.fr/politique/4261350-20261108-presidentielle-2027-sarah-knafo-veut-supprimer-800-000-postes-fonctionnaires" }, { label: "Yahoo/20 Minutes, nov. 2026", url: "https://fr.news.yahoo.com/sport/presidentielle-2027-sarah-knafo-veut-195755992.html" }] },
+  { id: "p14", candidateId: "knafo", themeId: "institutions",
+    text: "Supprimer le ministère des Sports, estimant que la France n'en a pas besoin (« ce n'est pas le ministre des Sports qui marque les buts »).",
+    sources: [{ label: "20 Minutes, 9 nov. 2026", url: "https://www.20minutes.fr/politique/4261680-20261109-presidentielle-2027-ministre-marque-buts-sarah-knafo-veut-supprimer-ministere-sports" }] },
+  { id: "p15", candidateId: "tondelier", themeId: "ecologie",
+    text: "Créer un « parc social » d'un million de véhicules électriques, sur le modèle des logements sociaux, en alternative préférée au leasing social du gouvernement.",
+    chiffres: [{ valeur: "1 million", contexte: "véhicules électriques en parc social" }],
+    sources: [{ label: "TF1info, 9 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/en-direct-presidentielle-2027-marine-tondelier-invitee-du-20h-de-tf1-ce-lundi-9-novembre-colere-sociale-crise-lyceenne-pouvoir-d-achat-2474836.html" }, { label: "TF1+, 9 nov. 2026", url: "https://www.tf1.fr/tf1/jt-20h/videos/marine-tondelier-invitee-du-20h-de-tf1-50006777.html" }] },
+  { id: "p16", candidateId: "tondelier", themeId: "institutions",
+    text: "Affirme qu'elle « ne se désistera pas » de la présidentielle, tout en se déclarant prête à ce que Les Écologistes « rejoignent une coalition » pour « quelque chose de plus grand ».",
+    sources: [{ label: "TF1info, 9 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/en-direct-presidentielle-2027-marine-tondelier-invitee-du-20h-de-tf1-ce-lundi-9-novembre-colere-sociale-crise-lyceenne-pouvoir-d-achat-2474836.html" }, { label: "Politique Matin, 10 nov. 2026", url: "https://www.politiquematin.fr/marine-tondelier-presidentielle-coalition-smic-tf1-10-novembre-2026" }] },
+  { id: "p17", candidateId: "lepen", themeId: "finances",
+    text: "Le RN annonce le non-remplacement de 223 000 postes de fonctionnaires partant à la retraite « pour que l'État fonctionne mieux » (annonce de Jordan Bardella, 10 nov.).",
+    chiffres: [{ valeur: "223 000", contexte: "postes de fonctionnaires non remplacés" }],
+    sources: [{ label: "BFMTV, 10 nov. 2026", url: "https://www.bfmtv.com/politique/front-national/video-fonction-publique-jordan-bardella-president-du-rassemblement-national-prevoit-le-non-remplacement-de-223-000-postes_VN-202611101008.html" }, { label: "ÉlyséeScope, nov. 2026", url: "https://www.elyseescope.com/questions/marine-le-pen-fonction-publique" }] },
+  { id: "p18", candidateId: "lepen", themeId: "institutions",
+    text: "En cas de victoire, un « gouvernement resserré autour d'une quinzaine de ministres de plein exercice », complété par des « secrétaires d'État de mission » chargés d'exécuter des engagements du programme (annonce de Jordan Bardella).",
+    sources: [{ label: "AFP, 10 nov. 2026", url: "search-result://news-1quWOJYC" }] }
 ];
 
 var STORAGE_KEY = "pres2027_props_v2";
@@ -138,7 +168,8 @@ function persist() {
   try { localStorage.setItem(STORAGE_KEY, JSON.stringify(props)); } catch (e) {}
 }
 function esc(s) {
-  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+  return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;
+").replace(/"/g, "&quot;");
 }
 function cand(id) { for (var i = 0; i < CANDIDATES.length; i++) if (CANDIDATES[i].id === id) return CANDIDATES[i]; return null; }
 function theme(id) { for (var i = 0; i < THEMES.length; i++) if (THEMES[i].id === id) return THEMES[i]; return null; }
@@ -174,7 +205,8 @@ function render() {
   var html = "<h1>🇫🇷 Comparateur des programmes — Présidentielle 2027</h1>" +
     '<p class="sub">1er tour : 18 avril 2027 · 2nd tour : 2 mai 2027 · Parrainages avant le 12 mars 2027</p>
 ' +
-    '<p class="tiny">Outil personnel d\'analyse : qui propose quoi, thème par thème. ' + props.length + " proposition" + (props.length > 1 ? "s" : "") + " enregistrée" + (props.length > 1 ? "s" : "") + " · tes notes sont sauvegardées dans ce navigateur.</p>";
+    '<p class="tiny">Outil personnel d\'analyse : qui propose quoi, thème par thème. ' + props.length + " proposition" + (props.length > 1 ? "s" : "") + " enregistrée" + (props.length > 1 ? "s" : "") + " · tes notes sont sauveg
+ardées dans ce navigateur.</p>";
 
   var tabs = [["themes", "📂 Par thème"], ["candidats", "👤 Par candidat"], ["matrice", "🧮 Vue d'ensemble"], ["ajouter", "➕ Ajouter"]];
   html += '<nav>';
@@ -209,7 +241,8 @@ function render() {
 >' + esc(c.name) + "</h2></div><p>" + esc(c.party) + " · " + esc(c.bloc) + "</p></div>";
     var any = false;
     for (var j = 0; j < THEMES.length; j++) {
-      var list = props.filter(function (p) { return p.themeId === THEMES[j].id && p.candidateId === state.cand; });
+      var list = props.filter(function (p) { return p.themeId === THEMES[j
+].id && p.candidateId === state.cand; });
       if (list.length === 0) continue;
       any = true;
       html += '<h3 class="sec">' + THEMES[j].icon + " " + THEMES[j].label + "</h3><div class=\"grid\">";
@@ -242,7 +275,8 @@ function render() {
       '<div class="note">💾 <b>Sauvegarde automatique</b> : tes notes sont conservées dans ce navigateur, même après fermeture. Utilise « Exporter » pour les transférer vers un autre appareil ou une autre personne (puis « Importer » de l\'autre côté).</div>' +
       '<form onsubmit="return addProp(event)">' +
       '<div class="row2"><label>Candidat<select id="f-cand">';
-    for (var i = 0; i < CANDIDATES.length; i++)
+    for (var i = 0; i <
+ CANDIDATES.length; i++)
       html += '<option value="' + CANDIDATES[i].id + '">' + esc(CANDIDATES[i].name) + " — " + esc(CANDIDATES[i].party) + "</option>";
     html += '</select></label><label>Thème<select id="f-theme">';
     for (var i = 0; i < THEMES.length; i++)
@@ -268,7 +302,8 @@ function render() {
 // ============ ACTIONS ============
 window.setTab = function (t) { state.tab = t; render(); };
 window.setTheme = function (t) { state.theme = t; state.tab = "themes"; render(); };
-window.setCand = function (c) { state.cand = c; state.tab = "candidats"; render(); };
+window.setCand = function (
+c) { state.cand = c; state.tab = "candidats"; render(); };
 window.removeProp = function (id) { props = props.filter(function (p) { return p.id !== id; }); persist(); render(); };
 window.addProp = function (ev) {
   ev.preventDefault();
@@ -316,7 +351,8 @@ window.importJSON = function (ev) {
     } catch (e) { alert("Fichier invalide."); }
   };
   reader.readAsText(file);
-  ev.target.value = "";
+  ev.target
+.value = "";
 };
 window.resetProps = function () {
   if (confirm("Réinitialiser toutes les propositions aux données de base ? Tes notes personnelles seront supprimées.")) {
