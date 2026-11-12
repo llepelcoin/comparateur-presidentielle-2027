@@ -148,7 +148,7 @@ var INITIAL_PROPOSITIONS = [
       { label: "AFP, 9 nov. 2026" }
     ] },
   { id: "p11", candidateId: "philippe", themeId: "institutions",
-    text: "Rejette fermement le principe d'une primaire de la droite et du centre, alors que 66 parlementaires (majorité Renaissance, UDI, MoDem) en appellant à l'organisation d'un candidat unique.",
+    text: "Rejette fermement le principe d'une primaire de la droite et du centre, alors que 66 parlementaires (majorité Renaissance, UDI, MoDem) en appellent à l'organisation d'un candidat unique.",
     sources: [
       { label: "AFP, 7 nov. 2026" }
     ] },
@@ -222,7 +222,7 @@ var INITIAL_PROPOSITIONS = [
       { label: "Orange actu/AFP, 10 nov. 2026", url: "https://actu.orange.fr/france/eric-zemmour-annonce-sa-candidature-a-la-presidentielle-pour-quot-conserver-une-france-francaise-quot-CNT000002tED9S.html" }
     ] },
   { id: "p23", candidateId: "retailleau", themeId: "institutions",
-    text: "Propose une primaire de la droite et du centre sur deux tours les 31 janvier et 7 février 2027, dates soumises à Édouard Philippe, Gabriel Attal et David Lisnard (« le temps joue contre nous ·).",
+    text: "Propose une primaire de la droite et du centre sur deux tours les 31 janvier et 7 février 2027, dates soumises à Édouard Philippe, Gabriel Attal et David Lisnard (« le temps joue contre nous »).",
     chiffres: [{ valeur: "31 janv. & 7 févr. 2027", contexte: "dates proposées pour la primaire" }],
     sources: [
       { label: "20 Minutes, 11 nov. 2026", url: "https://www.20minutes.fr/politique/4262102-20261111-presidentielle-2027-retailleau-soumet-philippe-attal-lisnard-dates-primaire" },
@@ -360,7 +360,7 @@ function render() {
   }
 
   if (state.tab === "ajouter") {
-    html += "<h2>➕BAjouter une proposition</h2>" +
+    html += "<h2>➕ Ajouter une proposition</h2>" +
       '<div class="note">💾 <b>Sauvegarde automatique</b> : tes notes sont conservées dans ce navigateur, même après fermeture. Utilise « Exporter » pour les transférer vers un autre appareil ou une autre personne (puis « Importer » de l\'autre côté).</div>' +
       '<form onsubmit="return addProp(event)">' +
       '<div class="row2"><label>Candidat<select id="f-cand">';
@@ -370,18 +370,18 @@ function render() {
     for (var i = 0; i < THEMES.length; i++)
       html += '<option value="' + THEMES[i].id + '">' + THEMES[i].icon + " " + THEMES[i].label + "</option>";
     html += '</select></label></div>' +
-      '<label>Proposition / position<textarea id="f-text" rows="3" placeholder="Ex. : Ramener l\'èàge légal de départ à la retraite à 62 ans…"></textarea></label>' +
+      '<label>Proposition / position<textarea id="f-text" rows="3" placeholder="Ex. : Ramener l\'âge légal de départ à la retraite à 62 ans…"></textarea></label>' +
       '<div class="row2"><label>Source 1 (optionnel)<input id="f-srclabel1" placeholder="Ex. : interview BFM, 12 nov. 2026" /></label>' +
       '<label>Lien source 1 (optionnel)<input id="f-srcurl1" placeholder="https://…" /></label></div>' +
       '<div class="row2"><label>Source 2 (optionnel)<input id="f-srclabel2" placeholder="Ex. : programme officiel, p. 12" /></label>' +
       '<label>Lien source 2 (optionnel)<input id="f-srcurl2" placeholder="https://…" /></label></div>' +
-      '<div class="row2"><label>Donnée chiffrée (optionnel)<input id="f-chval" placeholder="Ex. : -50 Ma€, 57% ↔ 43…" /></label>' +
+      '<div class="row2"><label>Donnée chiffrée (optionnel)<input id="f-chval" placeholder="Ex. : -50 Md€, 57% → 43%…" /></label>' +
       '<label>Contexte du chiffre<input id="f-chctxe" placeholder="Ex. : part des énergies fossiles d\'ici 2035" /></label></div>' +
       '<button class="btn" type="submit">Enregistrer</button>' +
       '<span class="flash" id="flash"></span></form>' +
       '<div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">' +
       '<button class="btn ghost" onclick="exportJSON()">⬇ Exporter mes notes (JSON)</button>' +
-      '<brb,tton class="btn ghost" onclick="document.getElementById(\'imp\').click()">⬆ Importer des notes (JSON)</button>' +
+      '<button class="btn ghost" onclick="document.getElementById(\'imp\').click()">⬆ Importer des notes (JSON)</button>' +
       '<input type="file" id="imp" accept=".json,application/json" style="display:none" onchange="importJSON(event)" />' +
       '<button class="btn ghost" onclick="resetProps()">↺ Réinitialiser</button></div>' +
       '<p class="tiny">Export/Import : transfère uniquement les propositions ajoutées manuellement ("ma note").</p>';
