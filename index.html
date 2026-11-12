@@ -83,7 +83,9 @@ var CANDIDATES = [
   { id: "tondelier", name: "Marine Tondelier", party: "Les Écologistes", bloc: "Gauche / écologistes", color: "#3fa06a" },
   { id: "melenchon", name: "Jean-Luc Mélenchon", party: "La France insoumise", bloc: "Gauche", color: "#cc2444" },
   { id: "polony", name: "Natacha Polony", party: "Sans étiquette (souverainiste)", bloc: "Souverainiste", color: "#8b5e4b" },
-  { id: "riner", name: "Teddy Riner", party: "Sans étiquette (société civile)", bloc: "Hors partis", color: "#c99700" }
+  { id: "riner", name: "Teddy Riner", party: "Sans étiquette (société civile)", bloc: "Hors partis", color: "#c99700" },
+  { id: "roussel", name: "Fabien Roussel", party: "Parti communiste français", bloc: "Gauche", color: "#8f1d21" },
+  { id: "zemmour", name: "Éric Zemmour", party: "Reconquête!", bloc: "Extrême droite", color: "#101f3c" }
 ];
 
 var INITIAL_PROPOSITIONS = [
@@ -95,7 +97,7 @@ var INITIAL_PROPOSITIONS = [
       { label: "Le Monde, 6 nov. 2026", url: "https://www.lemonde.fr" }
     ] },
   { id: "p2", candidateId: "retailleau", themeId: "ecologie",
-    text: "Cap « atténuer et adapter » : faire reculer les énergies fossiles, sans augmenter le prix de l'électricité.",
+    text: "Cap « atténuer et adapter ³ : faire reculer les énergies fossiles, sans augmenter le prix de l'électricité.",
     chiffres: [{ valeur: "57% → 43%", contexte: "part des énergies fossiles, d'ici 2035" }],
     sources: [
       { label: "franceinfo, sept. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" }
@@ -170,7 +172,7 @@ var INITIAL_PROPOSITIONS = [
       { label: "20 Minutes, 9 nov. 2026", url: "https://www.20minutes.fr/politique/4261680-20261109-presidentielle-2027-ministre-marque-buts-sarah-knafo-veut-supprimer-ministere-sports" }
     ] },
   { id: "p15", candidateId: "tondelier", themeId: "ecologie",
-    text: "Créer un « parc social » d'un million de véhicules électriques, sur le modèle des logements sociaux, en alternative préférée au leasing social du gouvernement.",
+    text: "Créer un « parc social · d'un million de véhicules électriques, sur le modèle des logements sociaux, en alternative préférée au leasing social du gouvernement.",
     chiffres: [{ valeur: "1 million", contexte: "véhicules électriques en parc social" }],
     sources: [
       { label: "TF1info, 9 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/en-direct-presidentielle-2027-marine-tondelier-invitee-du-20h-de-tf1-ce-lundi-9-novembre-colere-sociale-crise-lyceenne-pouvoir-d-achat-2474836.html" },
@@ -193,6 +195,48 @@ var INITIAL_PROPOSITIONS = [
     text: "En cas de victoire, un « gouvernement resserré autour d'une quinzaine de ministres de plein exercice », complété par des « secrétaires d'État de mission » chargés d'exécuter des engagements du programme (annonce de Jordan Bardella).",
     sources: [
       { label: "AFP, 10 nov. 2026" }
+    ] },
+  { id: "p19", candidateId: "roussel", themeId: "travail",
+    text: "Réclame un « coup de pouce » sur le Smic avec un passage à 2 200 euros brut, et une indexation des salaires sur l'inflation pour une « augmentation généralisée des salaires ».",
+    chiffres: [{ valeur: "2 200 € brut", contexte: "Smic demandé par le PCF" }],
+    sources: [
+      { label: "BFMTV, 7 nov. 2026", url: "https://www.bfmtv.com/politique/elections/presidentielle/video-nous-demandons-de-porter-le-smic-a-2-200-euros-brut-declare-fabien-roussel-candidat-pcf-a-la-presidentielle_VN-202611070513.html" },
+      { label: "franceinfo, 8 nov. 2026", url: "https://www.franceinfo.fr/replay-magazine/franceinfo/avant-le-20h/revalorisation-du-smic-fabien-roussel-souhaite-l-augmentation-generalisee-des-salaires_8273774.html" }
+    ] },
+  { id: "p20", candidateId: "roussel", themeId: "education",
+    text: "Réclame l'abrogation de Parcoursup : « il faut le faire, on a fait sans Parcoursup avant ».",
+    sources: [
+      { label: "BFMTV, 8 nov. 2026" },
+      { label: "franceinfo, 8 nov. 2026", url: "https://www.franceinfo.fr/replay-magazine/franceinfo/avant-le-20h/revalorisation-du-smic-fabien-roussel-souhaite-l-augmentation-generalisee-des-salaires_8273774.html" }
+    ] },
+  { id: "p21", candidateId: "roussel", themeId: "institutions",
+    text: "Malgré les défections au PCF (députés communistes soutenant Jean-Luc Mélenchon), assure qu'il mènera sa candidature « jusqu'au bout ».",
+    sources: [
+      { label: "Orange actu, 9 nov. 2026", url: "https://actu.orange.fr/politique/presidentielle-malgre-les-defections-roussel-ira-quot-jusqu-au-bout-quot-CNT000002tCsBj.html" },
+      { label: "Journal du Net, nov. 2026", url: "https://www.journaldunet.com/business/action-publique/1557751-fabien-roussel-assure-qu-il-menera-sa-candidature-jusqu-au-bout/" }
+    ] },
+  { id: "p22", candidateId: "zemmour", themeId: "institutions",
+    text: "Officialise sa candidature à la présidentielle au 20H de TF1, pour « conserver une France française », après avoir confirmé « je suis bien candidat ».",
+    sources: [
+      { label: "franceinfo, 10 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/eric-zemmour-leader-du-parti-d-extreme-droite-reconquete-officialise-sa-candidature-a-la-presidentielle_8276858.html" },
+      { label: "Orange actu/AFP, 10 nov. 2026", url: "https://actu.orange.fr/france/eric-zemmour-annonce-sa-candidature-a-la-presidentielle-pour-quot-conserver-une-france-francaise-quot-CNT000002tED9S.html" }
+    ] },
+  { id: "p23", candidateId: "retailleau", themeId: "institutions",
+    text: "Propose une primaire de la droite et du centre sur deux tours les 31 janvier et 7 février 2027, dates soumises à Édouard Philippe, Gabriel Attal et David Lisnard (« le temps joue contre nous ·).",
+    chiffres: [{ valeur: "31 janv. & 7 févr. 2027", contexte: "dates proposées pour la primaire" }],
+    sources: [
+      { label: "20 Minutes, 11 nov. 2026", url: "https://www.20minutes.fr/politique/4262102-20261111-presidentielle-2027-retailleau-soumet-philippe-attal-lisnard-dates-primaire" },
+      { label: "TF1info, 11 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/le-temps-joue-contre-nous-bruno-retailleau-propose-une-primaire-de-la-droite-et-du-centre-les-31-janvier-et-7-fevrier-2475141.html" }
+    ] },
+  { id: "p24", candidateId: "riner", themeId: "travail",
+    text: "Propose de « sortir du carcan figé des 35 heures, mais sans le remettre en question », et de réduire l'écart entre salaire net et salaire brut en allégeant les charges.",
+    sources: [
+      { label: "LCP, 10 nov. 2026", url: "https://lcp.fr/actualites/retraites-salaires-securite-que-propose-teddy-riner-pour-la-presidentielle-444935" }
+    ] },
+  { id: "p25", candidateId: "riner", themeId: "travail",
+    text: "Sur les retraites, garde le « système solidaire par répartition · mais n'écarte pas une « part de capitalisation » ; prône « dépenser moins et réinjecter mieux » face à la dette.",
+    sources: [
+      { label: "LCP, 10 nov. 2026", url: "https://lcp.fr/actualites/retraites-salaires-securite-que-propose-teddy-riner-pour-la-presidentielle-444935" }
     ] }
 ];
 
@@ -316,7 +360,7 @@ function render() {
   }
 
   if (state.tab === "ajouter") {
-    html += "<h2>➕ Ajouter une proposition</h2>" +
+    html += "<h2>➕@Ajouter une proposition</h2>" +
       '<div class="note">💾 <b>Sauvegarde automatique</b> : tes notes sont conservées dans ce navigateur, même après fermeture. Utilise « Exporter » pour les transférer vers un autre appareil ou une autre personne (puis « Importer » de l\'autre côté).</div>' +
       '<form onsubmit="return addProp(event)">' +
       '<div class="row2"><label>Candidat<select id="f-cand">';
@@ -326,12 +370,12 @@ function render() {
     for (var i = 0; i < THEMES.length; i++)
       html += '<option value="' + THEMES[i].id + '">' + THEMES[i].icon + " " + THEMES[i].label + "</option>";
     html += '</select></label></div>' +
-      '<label>Proposition / position<textarea id="f-text" rows="3" placeholder="Ex. : Ramener l\'âge légal de départ à la retraite à 62 ans…"></textarea></label>' +
+      '<label>Proposition / position<textarea id="f-text" rows="3" placeholder="Ex. : Ramener l\'à�ge légal de départ à la retraite à 62 ans…"></textarea></label>' +
       '<div class="row2"><label>Source 1 (optionnel)<input id="f-srclabel1" placeholder="Ex. : interview BFM, 12 nov. 2026" /></label>' +
       '<label>Lien source 1 (optionnel)<input id="f-srcurl1" placeholder="https://…" /></label></div>' +
       '<div class="row2"><label>Source 2 (optionnel)<input id="f-srclabel2" placeholder="Ex. : programme officiel, p. 12" /></label>' +
       '<label>Lien source 2 (optionnel)<input id="f-srcurl2" placeholder="https://…" /></label></div>' +
-      '<div class="row2"><label>Donnée chiffrée (optionnel)<input id="f-chval" placeholder="Ex. : -50 Md€, 57% → 43%…" /></label>' +
+      '<div class="row2"><label>Donnée chiffrée (optionnel)<input id="f-chval" placeholder="Ex. : -50 M€, 57% → 43%…" /></label>' +
       '<label>Contexte du chiffre<input id="f-chctxe" placeholder="Ex. : part des énergies fossiles d\'ici 2035" /></label></div>' +
       '<button class="btn" type="submit">Enregistrer</button>' +
       '<span class="flash" id="flash"></span></form>' +
