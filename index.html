@@ -28,6 +28,7 @@
   .card .src { margin-top: 8px; font-size: .75rem; }
   .card .src a { color: #2563eb; }
   .chiffres { display: flex; flex-wrap: wrap; gap: 6px; margin-
+
 top: 8px; }
   .chiffre { display: inline-block; font-size: .75rem; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; border-radius: 8px; padding: 3px 10px; }
   .card .del { position: absolute; top: 8px; right: 10px; color: #cbd5e1; cursor: pointer; background: none; border: none; font-size: .85rem; }
@@ -80,7 +81,8 @@ var CANDIDATES = [
   { id: "philippe", name: "Édouard Philippe", party: "Horizons", bloc: "Droite / centre droit", color: "#3b82c4" },
   { id: "lisnard", name: "David Lisnard", party: "Nouvelle Énergie", bloc: "Droite", color: "#5290cc" },
   { id: "attal", name: "Gabriel Attal", party: "Renaissance", bloc: "Centre", color: "#7aa8d9" },
-  { id: "glucksmann", name: "Raphaël Glucksmann", party: "Place publique / PS (primaire)", bloc: "Centre gauche", color: "#e07a8f" },
+  { id: "glucksmann", name: "Raphaël Glucksmann", party: "Place 
+publique / PS (primaire)", bloc: "Centre gauche", color: "#e07a8f" },
   { id: "tondelier", name: "Marine Tondelier", party: "Les Écologistes", bloc: "Gauche / écologistes", color: "#3fa06a" },
   { id: "melenchon", name: "Jean-Luc Mélenchon", party: "La France insoumise", bloc: "Gauche", color: "#cc2444" },
   { id: "polony", name: "Natacha Polony", party: "Sans étiquette (souverainiste)", bloc: "Souverainiste", color: "#8b5e4b" },
@@ -155,7 +157,8 @@ var INITIAL_PROPOSITIONS = [
     ] },
   { id: "p12", candidateId: "attal", themeId: "economie",
     text: "Faire de l'intelligence artificielle un levier de productivité et de hausse des salaires : « crédit d'impôt productivité » pour financer l'adoption de solutions IA dans les entreprises et formation de 20 millions de Français en trois ans.",
-    chiffres: [{ valeur: "20 millions", contexte: "Français formés à l'IA en 3 ans" }],
+    chiffres: [{ valeur: "20 
+millions", contexte: "Français formés à l'IA en 3 ans" }],
     sources: [
       { label: "AFP, 8 nov. 2026" },
       { label: "franceinfo, 8 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/gabriel-attal-juge-siderant-le-peu-de-place-de-l-intelligence-artificielle-dans-la-presidentielle-cle-pour-faire-monter-les-salaires_8273348.html" }
@@ -195,7 +198,8 @@ var INITIAL_PROPOSITIONS = [
   { id: "p18", candidateId: "lepen", themeId: "institutions",
     text: "En cas de victoire, un « gouvernement resserré autour d'une quinzaine de ministres de plein exercice », complété par des « secrétaires d'État de mission » chargés d'exécuter des engagements du programme (annonce de Jordan Bardella).",
     sources: [
-      { label: "AFP, 10 nov. 2026" }
+      { label: "AFP, 10 
+nov. 2026" }
     ] },
   { id: "p19", candidateId: "roussel", themeId: "travail",
     text: "Réclame un « coup de pouce » sur le Smic avec un passage à 2 200 euros brut, et une indexation des salaires sur l'inflation pour une « augmentation généralisée des salaires ».",
@@ -375,110 +379,6 @@ function card(p) {
     src = '<div class="src">';
     for (var i = 0; i < sources.length; i++) {
       var s = sources[i];
-      src += s.url        ? '<a href="' + esc(s.url) + '" target="_blank" rel="noreferrer">↗ ' + esc(s.label) + "</a>"
-        : '<span style="color:#94a3b8">' + esc(s.label) + "</span>";
-      if (i < sources.length - 1) src += ' &nbsp;·&nbsp; ';
-    }
-    src += "</div>";
-  }
-  var chf = "";
-  var chiffres = p.chiffres || [];
-  if (chiffres.length > 0) {
-    chf = '<div class="chiffres">';
-    for (var i = 0; i < chiffres.length; i++) {
-      chf += '<span class="chiffre">📊 <b>' + esc(chiffres[i].valeur) + "</b>" + (chiffres[i].contexte ? " " + esc(chiffres[i].contexte) : "") + "</span>";
-    }
-    chf += "</div>";
-  }
-  var del = p.mine ? '<button class="del" title="Supprimer" onclick="removeProp(\'' + p.id + '\')">✕</button>' : "";
-  var badge = p.mine ? '<span class="badge">ma note</span>' : "";
-  return '<div class="card">' + del +
-    '<div class="who"><span class="dot" style="background:' + c.color + '"></span><b>' + esc(c.name) + "</b><span>" + esc(c.party) + "</span>" + badge + "</div>" +
-    "<p>" + esc(p.text) + "</p>" + chf + src + "</div>";
-}
-
-function render() {
-  var html = "<h1>🇫🇷 Comparateur des programmes — Présidentielle 2027</h1>" +
-    '<p class="sub">1er tour : 18 avril 2027 · 2nd tour : 2 mai 2027 · Parrainages avant le 12 mars 2027</p>' +
-    '<p class="tiny">Outil personnel d\'analyse : qui propose quoi, thème par thème. ' + props.length + " proposition" + (props.length > 1 ? "s" : "") + " enregistrée" + (props.length > 1 ? "s" : "") + " · tes notes sont sauvegardées dans ce navigateur.</p>";
-
-  var tabs = [["themes", "📂 Par thème"], ["candidats", "👤 Par candidat"], ["matrice", "🧮 Vue d'ensemble"], ["ajouter", "➕ Ajouter"]];
-  html += '<nav>';
-  for (var i = 0; i < tabs.length; i++)
-    html += '<button class="tab' + (state.tab === tabs[i][0] ? " active" : "") 
-+ '" onclick="setTab(\'' + tabs[i][0] + "')\">" + tabs[i][1] + "</button>";
-  html += "</nav>";
-
-  if (state.tab === "themes") {
-    html += '<div class="chips">';
-    for (var i = 0; i < THEMES.length; i++)
-      html += '<button class="chip' + (state.theme === THEMES[i].id ? " active" : "") + '" onclick="setTheme(\'' + THEMES[i].id + "')\">" + THEMES[i].icon + " " + THEMES[i].label + "</button>";
-    html += "</div>";
-    var t = theme(state.theme);
-    html += "<h2>" + t.icon + " " + t.label + " — propositions</h2>";
-    var list = props.filter(function (p) { return p.themeId === state.theme; });
-    html += '<div class="grid">';
-    for (var i = 0; i < list.length; i++) html += card(list[i]);
-    html += "</div>";
-    if (list.length === 0)
-      html += '<div class="empty">Aucune proposition enregistrée sur ce thème.<br>Ajoute-en via l\'onglet « ➕ Ajouter ».</div>';
-  }
-
-  if (state.tab === "candidats") {
-    html += '<div class="chips">';
-    for (var i = 0; i < CANDIDATES.length; i++) {
-      var c = CANDIDATES[i];
-      html += '<button class="chip' + (state.cand === c.id ? " active" : "") + '" onclick="setCand(\'' + c.id + "')\"><span class=\"dot\" style=\"background:" + c.color + '"></span>' + esc(c.name) + "</button>";
-    }
-    html += "</div>";
-    var c = cand(state.cand);
-    html += '<div class="card" style="margin-bottom:16px"><div class="who"><span class="dot" style="background:' + c.color + '"></span><h2 style="margin:0">' + esc(c.name) + "</h2></div><p>" + esc(c.party) + " · " + esc(c.bloc) + "</p></div>";
-    var any = false;
-    for (var j = 0; j < THEMES.length; j++) {
-      var list = props.filter(function (p) { return p.themeId === THEMES[j].id && p.candidateId === state.cand; });
-      if (list.length === 0) continue;
-      any = true;
-      html += '<h3 class="sec">' + THEMES[j].icon + " " + THEMES[j].label + "</h3><div class=\"grid\">";
-      for (var i = 0; i < list.length; i++) html += card(list[i]);
-      html += "</div>";
-    }
-    if (!any) html += '<div class="empty">Aucune proposition enregistrée pour ce candidat. Utilise l\'onglet « ➕ Ajouter ».</div>';
-  }
-
-  if (state.tab === "matrice") {
-    html += "<h2>🧮 Vue d'ensemble de la collecte</h2>" +
-      '<p class="sub" style="margin-bottom:14px">Nombre de propositions par candidat et par thème.</p><table><thead><tr><th style="text-align:left">Candidat</th>';
-    for (var i = 0; i < THEMES.length; i++) html += "<th class=\"c\" title=\"" + esc(THEMES[i].label) + "\">" + THEMES[i].icon + "</th>";
-    html += '<th class="c">Σ</th></tr></thead><tbody>';
-    for (var i = 0; i < CANDIDATES.length; i++) {
-      var c = CANDIDATES[i], total = 0;
-      html += '<tr><td><span class="dot" style="background:' + c.color + '"></span> <b>' + esc(c.name) + "</b></td>";
-      for (var j = 0; j < THEMES.length; j++) {
-        var n = props.filter(function (p) { return p.candidateId === c.id && p.themeId === THEMES[j].id; }).length;
-        total += n;
-        html += '<td class="c">' + (n > 0 ? '<span class="num">' + n + "</span>" : '<span class="num zero">·</span>') + "</td>";
-      }
-      html += '<td class="c"><b>' + total + "</b></td></tr>";
-    }
-    html += "</tbody></table>";
-  }
-
-  if (state.tab === "ajouter") {
-    html += "<h2>➕ Ajouter une proposition</h2>" +
-      '<div class="note">💾 <b>Sauvegarde automatique</b> : tes notes sont conservées dans ce navigateur, même après fermeture. Utilise « Exporter » pour les transférer vers un autre appareil ou une autre personne (puis « Importer » de l\'autre côté).</div>' +
-      '<form onsubmit="return addProp(event)">' +
-      '<div class="row2"><label>Candidat<select id="f-cand">';
-    for (var i = 0; i < CANDIDATES.length; i++)
-      html += '<option value="' + CANDIDATES[i].id + '">' + esc(CANDIDATES[i].name) + " — " + esc(CANDIDATES[i].party) + "</option>";
-    html += '</select></label><label>Thème<select id="f-theme">';
-    for (var i = 0; i < THEMES.length; i++)
-      html += '<option value="' + THEM
-ES[i].id + '">' + THEMES[i].icon + " " + THEMES[i].label + "</option>";
-    html += '</select></label></div>' +
-      '<label>Proposition / position<textarea id="f-text" rows="3" placeholder="Ex. : Ramener l\'âge légal de départ à la retraite à 62 ans…"></textarea></label>' +
-      '<div class="row2"><label>Source 1 (optionnel)<input id="f-srclabel1" placeholder="Ex. : interview BFM, 12 nov. 2026" /></label>' +
-      '<label>Lien source 1 (optionnel)<input id="f-srcurl1" placeholder="https://…" /></label></div>' +
-      '<div class="row2"><label>Source 2 (optionnel)<input id="f-srclabel2" placeholder="Ex. : programme officiel, p. 12" /></label>' +
-      '<label>Lien source 2 (optionnel)<input id="f-srcurl2" placeholder="https://…" /></label><
+      src 
 
 ... [Content truncated]
