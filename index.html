@@ -27,7 +27,8 @@
   .card p { font-size: .85rem; line-height: 1.5; color: #334155; margin: 0; }
   .card .src { margin-top: 8px; font-size: .75rem; }
   .card .src a { color: #2563eb; }
-  .chiffres { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .chiffres { display: flex; flex-wrap: wrap; gap: 6px; margin-
+top: 8px; }
   .chiffre { display: inline-block; font-size: .75rem; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; border-radius: 8px; padding: 3px 10px; }
   .card .del { position: absolute; top: 8px; right: 10px; color: #cbd5e1; cursor: pointer; background: none; border: none; font-size: .85rem; }
   .card .del:hover { color: #ef4444; }
@@ -216,7 +217,8 @@ var INITIAL_PROPOSITIONS = [
       { label: "Journal du Net, nov. 2026", url: "https://www.journaldunet.com/business/action-publique/1557751-fabien-roussel-assure-qu-il-menera-sa-candidature-jusqu-au-bout/" }
     ] },
   { id: "p22", candidateId: "zemmour", themeId: "institutions",
-    text: "Officialise sa candidature à la présidentielle au 20H de TF1, pour « conserver une France française », après avoir confirmé « je suis bien candidat ».",
+    text: "Officialise sa candidature à la présidentielle au 20H 
+de TF1, pour « conserver une France française », après avoir confirmé « je suis bien candidat ».",
     sources: [
       { label: "franceinfo, 10 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/eric-zemmour-leader-du-parti-d-extreme-droite-reconquete-officialise-sa-candidature-a-la-presidentielle_8276858.html" },
       { label: "Orange actu/AFP, 10 nov. 2026", url: "https://actu.orange.fr/france/eric-zemmour-annonce-sa-candidature-a-la-presidentielle-pour-quot-conserver-une-france-francaise-quot-CNT000002tED9S.html" }
@@ -252,7 +254,8 @@ var INITIAL_PROPOSITIONS = [
       { label: "Entrevue, 12 nov. 2026", url: "https://entrevue.fr/politique/presidentielle-2027/presidentielle-2027-fabien-roussel-vise-500-000-recrutements-dans-les-services-publics-et-une-hausse-immediate-de-10-des-salaires-des-fonctionnaires/" }
     ] },
   { id: "p28", candidateId: "attal", themeId: "finances",
-    text: "Supprimer 100 000 postes dans l'État et les collectivités via un plan inédit de départs volontaires avec indemnité (« je ne propose pas la suppression sèche »), tout en promettant « pas de poste supprimé » dans l'Éducation nationale.",
+    text: "Supprimer 100 000 postes dans l'État et les collectivités via 
+un plan inédit de départs volontaires avec indemnité (« je ne propose pas la suppression sèche »), tout en promettant « pas de poste supprimé » dans l'Éducation nationale.",
     chiffres: [{ valeur: "100 000", contexte: "postes visés par départs volontaires" }],
     sources: [
       { label: "Capital/Yahoo Finance, 12 nov. 2026", url: "https://fr.finance.yahoo.com/actualites/indemnit%C3%A9-quitter-fonction-publique-gabriel-220438244.html" },
@@ -276,6 +279,68 @@ var INITIAL_PROPOSITIONS = [
     sources: [
       { label: "BFMTV, 12 nov. 2026", url: "https://www.bfmtv.com/politique/elections/presidentielle/presidentielle-2027-bruno-retailleau-souhaite-une-primaire-de-la-droite-et-du-centre-meme-sans-edouard-philippe_AN-202611120639.html" },
       { label: "RTL, 12 nov. 2026", url: "https://www.rtl.fr/actu/politique/il-ne-faut-pas-l-empecher-bruno-retailleau-estime-que-la-primaire-a-droite-et-au-centre-pour-la-presidentielle-2027-doit-se-faire-meme-sans-edouard-philippe-7900695502" }
+    ] },
+  { id: "p32", candidateId: "lepen", themeId: "economie",
+    text: "Baisser la TVA à 0 % sur les produits de première nécessité et à 5,5 % sur l'électricité, le gaz et les carburants, pour alléger rapidement les dépenses quotidiennes des ménages (débat TF1/LCI-Restos du Cœur).",
+    chiffres: [{ valeur: "0%", contexte: "TVA sur les produits de première nécessité" }, { valeur: "5,5%", contexte: "TVA sur électricité, gaz et carburants" }],
+    sources: [
+      { label: "Entrevue, 16 nov. 2026", url: "https://entrevue.fr/presidentielle-2027/presidentielle-2027-les-temps-forts-et-les-propositions-des-cinq-candidats/" },
+      { label: "AFP, 16 nov. 2026" }
+    ] },
+  { id: "p33", candidateId: "lepen", themeId: "education",
+    text: "Plan jeunes : « prime d'activité étudiante » pour les étudiants qui travaillent, gratuité du permis de conduire pour les jeunes, trains gratuits aux heures creuses et création de logements étudiants dans les bureaux vides (débat LCI du 16 nov.).",
+    chiffres: [{ valeur: "20% → 300 €", contexte: "prime d'activité étudiante : 20 % du salaire jusqu'à 200 €, 30 % jusqu'à 300 € pour les boursiers" }, { valeur: "700 M€/an", contexte: "coût estimé de la gratuité du permis par le RN" }],
+    sources: [
+      { label: "Euronews, 17 nov. 2026", url: "https://fr.euronews.com/2026/11/17/presidentielle-2027-le-pen-promet-une-prime-dactivite-pour-les-jeunes-melenchon-souhaite-u" }
+    ] },
+  { id: "p34", candidateId: "melenchon", themeId: "education",
+    text: "Allocation d'autonomie de 1 337 € par mois pour les jeunes qui étudient, accordable dès 16 ans dans les filières professionnelles, financée par une taxe à 100 % sur les héritages au-delà de 12 millions d'euros.",
+    chiffres: [{ valeur: "1 337 €/mois", contexte: "allocation d'autonomie pour les jeunes étudiants" }, { valeur: "9,5 Md€/an", contexte: "coût estimé de la mesure par LFI" }, { valeur: "12 M€", contexte: "seuil d'héritage soumis à une taxe à 100 %" }],
+    sources: [
+      { label: "Euronews, 17 nov. 2026", url: "https://fr.euronews.com/2026/11/17/presidentielle-2027-le-pen-promet-une-prime-dactivite-pour-les-jeunes-melenchon-souhaite-u" }
+    ] },
+  { id: "p35", candidateId: "melenchon", themeId: "economie",
+    text: "« État d'urgence social » : blocage de certains prix essentiels et encadrement des marges des grandes entreprises de l'agroalimentaire, en complément de la hausse du Smic à 1 700 € nets (débat TF1/LCI-Restos du Cœur).",
+    sources: [
+      { label: "Entrevue, 16 nov. 2026", url: "https://entrevue.fr/presidentielle-2027/presidentielle-2027-les-temps-forts-et-les-propositions-des-cinq-candidats/" },
+      { label: "AFP, 16 nov. 2026" }
+    ] },
+  { id: "p36", candidateId: "glucksmann", themeId: "economie",
+    text: "Pass mobilité à 1 € par jour pour les moins de 25 ans, valable pour tous les transports du quotidien et financé par une taxation des plus hauts patrimoines ; statut et droits spécifiques pour les familles monoparentales (garde aménagée, places privilégiées en crèche, pension alimentaire).",
+    chiffres: [{ valeur: "1 €/jour", contexte: "pass mobilité pour les moins de 25 ans" }],
+    sources: [
+      { label: "Euronews, 17 nov. 2026", url: "https://fr.euronews.com/2026/11/17/presidentielle-2027-le-pen-promet-une-prime-dactivite-pour-les-jeunes-melenchon-souhaite-u" }
+    ] },
+  { id: "p37", candidateId: "attal", themeId: "travail",
+    text: "Supprimer la CSG prélevée sur les rémunérations pour augmenter directement le salaire net, avec un gain pouvant atteindre 270 € nets par mois pour certains salariés (débat TF1/LCI-Restos du Cœur).",
+    chiffres: [{ valeur: "+270 €/mois", contexte: "gain net maximum annoncé de la suppression de la CSG sur salaires" }],
+    sources: [
+      { label: "Entrevue, 16 nov. 2026", url: "https://entrevue.fr/presidentielle-2027/presidentielle-2027-les-temps-forts-et-les-propositions-des-cinq-candidats/" },
+      { label: "AFP, 16 nov. 2026" }
+    ] },
+  { id: "p38", candidateId: "attal", themeId: "economie",
+    text: "Défiscaliser les pensions alimentaires versées aux mères et élargir la garantie Visale (caution locative de l'État) à l'ensemble des locataires (débat LCI jeunes du 16 nov.).",
+    sources: [
+      { label: "Euronews, 17 nov. 2026", url: "https://fr.euronews.com/2026/11/17/presidentielle-2027-le-pen-promet-une-prime-dactivite-pour-les-jeunes-melenchon-souhaite-u" }
+    ] },
+  { id: "p39", candidateId: "retailleau", themeId: "economie",
+    text: "Logement et travail : priorité aux personnes qui travaillent et aux familles avec enfants dans l'accès aux logements sociaux, favoriser l'accession à la propriété des locataires HLM, supprimer l'encadrement des loyers et abaisser massivement les charges pour les travailleurs et les PME.",
+    sources: [
+      { label: "Entrevue, 16 nov. 2026", url: "https://entrevue.fr/presidentielle-2027/presidentielle-2027-les-temps-forts-et-les-propositions-des-cinq-candidats/" },
+      { label: "Euronews, 17 nov. 2026", url: "https://fr.euronews.com/2026/11/17/presidentielle-2027-le-pen-promet-une-prime-dactivite-pour-les-jeunes-melenchon-souhaite-u" }
+    ] },
+  { id: "p40", candidateId: "roussel", themeId: "economie",
+    text: "Nationaliser TotalEnergies : indemnisation sans perte des petits porteurs détenant jusqu'à 20 000 € d'actions, échange des titres des grands actionnaires (y compris étrangers) contre des obligations d'État indexées sur le Livret A ; défend le nucléaire « pour faire fonctionner les usines » et assume de ne pas être « pour la décroissance ».",
+    chiffres: [{ valeur: "20 000 €", contexte: "seuil d'actions indemnisées sans perte en cas de nationalisation" }],
+    sources: [
+      { label: "Politique Matin, 16 nov. 2026", url: "https://www.politiquematin.fr/fabien-roussel-bfmtv-nationalisation-totalenergies-16-novembre-2026" },
+      { label: "BFMTV, 16 nov. 2026" }
+    ] },
+  { id: "p41", candidateId: "riner", themeId: "institutions",
+    text: "Rejette l'étiquette « macroniste » malgré le soutien d'Emmanuel Macron, qualifiant ses félicitations de « baiser empoisonné » : « je ne suis pas un macroniste », se dit « ni de droite ni de gauche » et sans famille politique.",
+    sources: [
+      { label: "franceinfo, 15 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle-2027-je-ne-suis-pas-un-macroniste-affirme-teddy-riner_8283248.html" },
+      { label: "Entrevue, 14 nov. 2026", url: "https://entrevue.fr/presidentielle-2027/presidentielle-2027-les-temps-forts-et-les-propositions-des-cinq-candidats/" }
     ] }
 ];
 
@@ -310,8 +375,7 @@ function card(p) {
     src = '<div class="src">';
     for (var i = 0; i < sources.length; i++) {
       var s = sources[i];
-      src += s.url
-        ? '<a href="' + esc(s.url) + '" target="_blank" rel="noreferrer">↗ ' + esc(s.label) + "</a>"
+      src += s.url        ? '<a href="' + esc(s.url) + '" target="_blank" rel="noreferrer">↗ ' + esc(s.label) + "</a>"
         : '<span style="color:#94a3b8">' + esc(s.label) + "</span>";
       if (i < sources.length - 1) src += ' &nbsp;·&nbsp; ';
     }
@@ -341,7 +405,8 @@ function render() {
   var tabs = [["themes", "📂 Par thème"], ["candidats", "👤 Par candidat"], ["matrice", "🧮 Vue d'ensemble"], ["ajouter", "➕ Ajouter"]];
   html += '<nav>';
   for (var i = 0; i < tabs.length; i++)
-    html += '<button class="tab' + (state.tab === tabs[i][0] ? " active" : "") + '" onclick="setTab(\'' + tabs[i][0] + "')\">" + tabs[i][1] + "</button>";
+    html += '<button class="tab' + (state.tab === tabs[i][0] ? " active" : "") 
++ '" onclick="setTab(\'' + tabs[i][0] + "')\">" + tabs[i][1] + "</button>";
   html += "</nav>";
 
   if (state.tab === "themes") {
@@ -407,95 +472,13 @@ function render() {
       html += '<option value="' + CANDIDATES[i].id + '">' + esc(CANDIDATES[i].name) + " — " + esc(CANDIDATES[i].party) + "</option>";
     html += '</select></label><label>Thème<select id="f-theme">';
     for (var i = 0; i < THEMES.length; i++)
-      html += '<option value="' + THEMES[i].id + '">' + THEMES[i].icon + " " + THEMES[i].label + "</option>";
+      html += '<option value="' + THEM
+ES[i].id + '">' + THEMES[i].icon + " " + THEMES[i].label + "</option>";
     html += '</select></label></div>' +
       '<label>Proposition / position<textarea id="f-text" rows="3" placeholder="Ex. : Ramener l\'âge légal de départ à la retraite à 62 ans…"></textarea></label>' +
       '<div class="row2"><label>Source 1 (optionnel)<input id="f-srclabel1" placeholder="Ex. : interview BFM, 12 nov. 2026" /></label>' +
       '<label>Lien source 1 (optionnel)<input id="f-srcurl1" placeholder="https://…" /></label></div>' +
       '<div class="row2"><label>Source 2 (optionnel)<input id="f-srclabel2" placeholder="Ex. : programme officiel, p. 12" /></label>' +
-      '<label>Lien source 2 (optionnel)<input id="f-srcurl2" placeholder="https://…" /></label></div>' +
-      '<div class="row2"><label>Donnée chiffrée (optionnel)<input id="f-chval" placeholder="Ex. : -50 Md€, 57% → 43%…" /></label>' +
-      '<label>Contexte du chiffre<input id="f-chctxe" placeholder="Ex. : part des énergies fossiles d\'ici 2035" /></label></div>' +
-      '<button class="btn" type="submit">Enregistrer</button>' +
-      '<span class="flash" id="flash"></span></form>' +
-      '<div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">' +
-      '<button class="btn ghost" onclick="exportJSON()">⬇ Exporter mes notes (JSON)</button>' +
-      '<button class="btn ghost" onclick="document.getElementById(\'imp\').click()">⬆ Importer des notes (JSON)</button>' +
-      '<input type="file" id="imp" accept=".json,application/json" style="display:none" onchange="importJSON(event)" />' +
-      '<button class="btn ghost" onclick="resetProps()">↺ Réinitialiser</button></div>' +
-      '<p class="tiny">Export/Import : transfère uniquement les propositions ajoutées manuellement ("ma note").</p>';
-  }
+      '<label>Lien source 2 (optionnel)<input id="f-srcurl2" placeholder="https://…" /></label><
 
-  html += '<footer>Candidats déclarés recensés début novembre 2026 — la liste évolue (primaires, désistements possibles). Toujours vérifier les propositions dans les sources originales.</footer>';
-  app.innerHTML = html;
-}
-
-// ============ ACTIONS ============
-window.setTab = function (t) { state.tab = t; render(); };
-window.setTheme = function (t) { state.theme = t; state.tab = "themes"; render(); };
-window.setCand = function (c) { state.cand = c; state.tab = "candidats"; render(); };
-window.removeProp = function (id) { props = props.filter(function (p) { return p.id !== id; }); persist(); render(); };
-window.addProp = function (ev) {
-  ev.preventDefault();
-  var text = document.getElementById("f-text").value.trim();
-  var fl = document.getElementById("flash");
-  if (!text) { fl.textContent = "⚠️ Écris d'abord une proposition."; return false; }
-  var sources = [];
-  [["f-srclabel1", "f-srcurl1"], ["f-srclabel2", "f-srcurl2"]].forEach(function (ids) {
-    var lbl = document.getElementById(ids[0]).value.trim();
-    if (lbl) sources.push({ label: lbl, url: document.getElementById(ids[1]).value.trim() || null });
-  });
-  var chval = document.getElementById("f-chval").value.trim();
-  props.push({
-    id: "u" + Date.now(),
-    candidateId: document.getElementById("f-cand").value,
-    themeId: document.getElementById("f-theme").value,
-    text: text,
-    sources: sources,
-    chiffres: chval ? [{ valeur: chval, contexte: document.getElementById("f-chctxe").value.trim() }] : [],
-    mine: true
-  });
-  persist(); render();
-  return false;
-};
-window.exportJSON = function () {
-  var mine = props.filter(function (p) { return p.mine; });
-  var blob = new Blob([JSON.stringify({ type: "pres2027-notes", propositions: mine }, null, 2)], { type: "application/json" });
-  var a = document.createElement("a");
-  a.href = URL.createObjectURL(blob);
-  a.download = "notes-presidentielle-2027.json";
-  a.click();
-  URL.revokeObjectURL(a.href);
-};
-window.importJSON = function (ev) {
-  var file = ev.target.files[0];
-  if (!file) return;
-  var reader = new FileReader();
-  reader.onload = function () {
-    try {
-      var data = JSON.parse(reader.result);
-      var incoming = data.propositions || data;
-      if (!(incoming instanceof Array)) throw new Error("format");
-      var existing = {}; props.forEach(function (p) { existing[p.id] = true; });
-      var added = 0;
-      incoming.forEach(function (p) {
-        if (p && p.text && p.candidateId && !existing[p.id]) { p.mine = true; props.push(p); added++; }
-      });
-      persist(); render();
-      alert("Import : " + added + " proposition(s) ajoutée(s).");
-    } catch (e) { alert("Fichier invalide."); }
-  };
-  reader.readAsText(file);
-  ev.target.value = "";
-};
-window.resetProps = function () {
-  if (confirm("Réinitialiser toutes les propositions aux données de base ? Tes notes personnelles seront supprimées.")) {
-    props = INITIAL_PROPOSITIONS.slice();
-    persist(); render();
-  }
-};
-
-render();
-</script>
-</body>
-</html>
+... [Content truncated]
