@@ -29,6 +29,7 @@
   .card .src a { color: #2563eb; }
   .chiffres { display: flex; flex-wrap: wrap; gap: 6px; margin-
 
+
 top: 8px; }
   .chiffre { display: inline-block; font-size: .75rem; background: #ecfdf5; color: #065f46; border: 1px solid #a7f3d0; border-radius: 8px; padding: 3px 10px; }
   .card .del { position: absolute; top: 8px; right: 10px; color: #cbd5e1; cursor: pointer; background: none; border: none; font-size: .85rem; }
@@ -48,7 +49,8 @@ top: 8px; }
   select, input, textarea { width: 100%; margin-top: 4px; padding: 8px 10px; border: 1px solid #cbd5e1; border-radius: 8px; font-size: .85rem; font-family: inherit; }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .btn { background: #0f172a; color: #fff; border: none; padding: 9px 18px; border-radius: 8px; font-size: .85rem; cursor: pointer; }
-  .btn.ghost { background: #fff; color: #475569; border: 1px solid #cbd5e1; }
+  .b
+tn.ghost { background: #fff; color: #475569; border: 1px solid #cbd5e1; }
   .flash { font-size: .85rem; margin-left: 10px; }
   .note { background: #f0f9ff; border: 1px solid #bae6fd; color: #075985; border-radius: 12px; padding: 12px 16px; font-size: .8rem; margin-bottom: 16px; }
   footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: .72rem; }
@@ -81,7 +83,8 @@ var CANDIDATES = [
   { id: "philippe", name: "Édouard Philippe", party: "Horizons", bloc: "Droite / centre droit", color: "#3b82c4" },
   { id: "lisnard", name: "David Lisnard", party: "Nouvelle Énergie", bloc: "Droite", color: "#5290cc" },
   { id: "attal", name: "Gabriel Attal", party: "Renaissance", bloc: "Centre", color: "#7aa8d9" },
-  { id: "glucksmann", name: "Raphaël Glucksmann", party: "Place 
+  { id: "glucksmann", name: "Raphaël Glucksmann", party: "Place
+ 
 publique / PS (primaire)", bloc: "Centre gauche", color: "#e07a8f" },
   { id: "tondelier", name: "Marine Tondelier", party: "Les Écologistes", bloc: "Gauche / écologistes", color: "#3fa06a" },
   { id: "melenchon", name: "Jean-Luc Mélenchon", party: "La France insoumise", bloc: "Gauche", color: "#cc2444" },
@@ -106,7 +109,8 @@ var INITIAL_PROPOSITIONS = [
       { label: "franceinfo, sept. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" }
     ] },
   { id: "p3", candidateId: "glucksmann", themeId: "ecologie",
-    text: "« Révolution écologique » : développement rapide des renouvelables, électrification des usages, leasing social sur les voitures électriques, rénovation thermique des bâtiments, politique du train, agroécologie. Sortie des énergies fossiles comme « clé de voûte ».",
+    text: "« Révolution écologique » : développement rapide 
+des renouvelables, électrification des usages, leasing social sur les voitures électriques, rénovation thermique des bâtiments, politique du train, agroécologie. Sortie des énergies fossiles comme « clé de voûte ».",
     sources: [
       { label: "franceinfo, sept. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/on-ne-decouvre-rien-les-candidats-a-la-presidentielle-ont-ils-adapte-leur-programme-apres-les-canicules-d-un-ete-apocalyptique_8174960.html" },
       { label: "Le Monde, 26 août 2026", url: "https://www.lemonde.fr" }
@@ -127,7 +131,8 @@ var INITIAL_PROPOSITIONS = [
     text: "« 100 % Sécu » : prise en charge intégrale des dépenses de santé par la Sécurité sociale, pour supprimer les restes à charge.",
     sources: [
       { label: "AFP, 6 nov. 2026" },
-      { label: "RTL, 6 nov. 2026", url: "https://www.rtl.fr/actu/politique/smic-a-1-700-euros-retraite-a-60-ans-nucleaire-ce-que-prevoient-les-1-069-mesures-du-programme-de-jean-luc-melenchon-pour-2027-7900693627" }
+      { label: "RTL, 6 nov. 2026", url: "https://www.rtl.fr/actu/politique/smic-a-1
+-700-euros-retraite-a-60-ans-nucleaire-ce-que-prevoient-les-1-069-mesures-du-programme-de-jean-luc-melenchon-pour-2027-7900693627" }
     ] },
   { id: "p7", candidateId: "melenchon", themeId: "international",
     text: "Sur l'Ukraine : refus d'une paix « avec des concessions territoriales » sans consultation — toute modification de frontière (Donbass) devrait être conditionnée à un vote des populations concernées.",
@@ -157,7 +162,8 @@ var INITIAL_PROPOSITIONS = [
     ] },
   { id: "p12", candidateId: "attal", themeId: "economie",
     text: "Faire de l'intelligence artificielle un levier de productivité et de hausse des salaires : « crédit d'impôt productivité » pour financer l'adoption de solutions IA dans les entreprises et formation de 20 millions de Français en trois ans.",
-    chiffres: [{ valeur: "20 
+    chiffres: [{ valeur: "2
+0 
 millions", contexte: "Français formés à l'IA en 3 ans" }],
     sources: [
       { label: "AFP, 8 nov. 2026" },
@@ -179,7 +185,8 @@ millions", contexte: "Français formés à l'IA en 3 ans" }],
     text: "Créer un « parc social » d'un million de véhicules électriques, sur le modèle des logements sociaux, en alternative préférée au leasing social du gouvernement.",
     chiffres: [{ valeur: "1 million", contexte: "véhicules électriques en parc social" }],
     sources: [
-      { label: "TF1info, 9 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/en-direct-presidentielle-2027-marine-tondelier-invitee-du-20h-de-tf1-ce-lundi-9-novembre-colere-sociale-crise-lyceenne-pouvoir-d-achat-2474836.html" },
+      { label: "TF1info, 9 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/en-direct-presidentielle-2027-marine-tondelier
+-invitee-du-20h-de-tf1-ce-lundi-9-novembre-colere-sociale-crise-lyceenne-pouvoir-d-achat-2474836.html" },
       { label: "TF1+, 9 nov. 2026", url: "https://www.tf1.fr/tf1/jt-20h/videos/marine-tondelier-invitee-du-20h-de-tf1-50006777.html" }
     ] },
   { id: "p16", candidateId: "tondelier", themeId: "institutions",
@@ -198,7 +205,8 @@ millions", contexte: "Français formés à l'IA en 3 ans" }],
   { id: "p18", candidateId: "lepen", themeId: "institutions",
     text: "En cas de victoire, un « gouvernement resserré autour d'une quinzaine de ministres de plein exercice », complété par des « secrétaires d'État de mission » chargés d'exécuter des engagements du programme (annonce de Jordan Bardella).",
     sources: [
-      { label: "AFP, 10 
+      { label: "AFP, 
+10 
 nov. 2026" }
     ] },
   { id: "p19", candidateId: "roussel", themeId: "travail",
@@ -221,7 +229,8 @@ nov. 2026" }
       { label: "Journal du Net, nov. 2026", url: "https://www.journaldunet.com/business/action-publique/1557751-fabien-roussel-assure-qu-il-menera-sa-candidature-jusqu-au-bout/" }
     ] },
   { id: "p22", candidateId: "zemmour", themeId: "institutions",
-    text: "Officialise sa candidature à la présidentielle au 20H 
+    text: "Officialise sa candidature à la présidentielle au
+ 20H 
 de TF1, pour « conserver une France française », après avoir confirmé « je suis bien candidat ».",
     sources: [
       { label: "franceinfo, 10 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/eric-zemmour-leader-du-parti-d-extreme-droite-reconquete-officialise-sa-candidature-a-la-presidentielle_8276858.html" },
@@ -240,7 +249,8 @@ de TF1, pour « conserver une France française », après avoir confirmé « je
       { label: "LCP, 10 nov. 2026", url: "https://lcp.fr/actualites/retraites-salaires-securite-que-propose-teddy-riner-pour-la-presidentielle-444935" }
     ] },
   { id: "p25", candidateId: "riner", themeId: "travail",
-    text: "Sur les retraites, garde le « système solidaire par répartition » mais n'écarte pas une « part de capitalisation » ; prône « dépenser moins et réinjecter mieux » face à la dette.",
+    text: "Sur les retraites, garde le « système solidaire par répartition » mais n'écarte pas une « part de capitalisation » ; prône « dépenser moin
+s et réinjecter mieux » face à la dette.",
     sources: [
       { label: "LCP, 10 nov. 2026", url: "https://lcp.fr/actualites/retraites-salaires-securite-que-propose-teddy-riner-pour-la-presidentielle-444935" }
     ] },
@@ -258,7 +268,8 @@ de TF1, pour « conserver une France française », après avoir confirmé « je
       { label: "Entrevue, 12 nov. 2026", url: "https://entrevue.fr/politique/presidentielle-2027/presidentielle-2027-fabien-roussel-vise-500-000-recrutements-dans-les-services-publics-et-une-hausse-immediate-de-10-des-salaires-des-fonctionnaires/" }
     ] },
   { id: "p28", candidateId: "attal", themeId: "finances",
-    text: "Supprimer 100 000 postes dans l'État et les collectivités via 
+    text: "Supprimer 100 000 postes dans l'État et les collectivité
+s via 
 un plan inédit de départs volontaires avec indemnité (« je ne propose pas la suppression sèche »), tout en promettant « pas de poste supprimé » dans l'Éducation nationale.",
     chiffres: [{ valeur: "100 000", contexte: "postes visés par départs volontaires" }],
     sources: [
@@ -275,7 +286,8 @@ un plan inédit de départs volontaires avec indemnité (« je ne propose pas la
     text: "Augmenter les salaires des enseignants : jusqu'à +25 % « en milieu de carrière » et +10 % pour l'ensemble des enseignants ; moratoire sur les fermetures d'écoles en milieu rural décidées sans concertation et réaffirmation de la mixité sociale à l'école publique.",
     chiffres: [{ valeur: "+25%", contexte: "hausses de salaire en milieu de carrière" }, { valeur: "+10%", contexte: "pour l'ensemble des enseignants" }],
     sources: [
-      { label: "franceinfo, 12 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-education-sante-transports-suivez-les-interviews-de-huit-candidats-dans-le-cadre-de-l-operation-nos-services-publics_8276135.html" }
+      { label: "franceinfo, 12 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/direct-presidentielle-2027-education-sante-transports-suivez-les-interviews-de-huit-candidats-da
+ns-le-cadre-de-l-operation-nos-services-publics_8276135.html" }
     ] },
   { id: "p31", candidateId: "retailleau", themeId: "institutions",
     text: "Maintient la primaire de la droite et du centre « même sans Édouard Philippe » : « il ne faut pas l'empêcher », refusant « de donner à un individu particulier un droit de veto » ; réunion des directeurs de campagne Attal-Retailleau-Lisnard annoncée le 17 novembre.",
@@ -292,7 +304,8 @@ un plan inédit de départs volontaires avec indemnité (« je ne propose pas la
       { label: "AFP, 16 nov. 2026" }
     ] },
   { id: "p33", candidateId: "lepen", themeId: "education",
-    text: "Plan jeunes : « prime d'activité étudiante » pour les étudiants qui travaillent, gratuité du permis de conduire pour les jeunes, trains gratuits aux heures creuses et création de logements étudiants dans les bureaux vides (débat LCI du 16 nov.).",
+    text: "Plan jeunes : « prime d'activité étudiante » pour les étudiants qui travaillent, gratuité du permis de conduire pour les jeunes, trains gratuits aux heures creuses et création de logements étudiants dans les bureaux vides (d
+ébat LCI du 16 nov.).",
     chiffres: [{ valeur: "20% → 300 €", contexte: "prime d'activité étudiante : 20 % du salaire jusqu'à 200 €, 30 % jusqu'à 300 € pour les boursiers" }, { valeur: "700 M€/an", contexte: "coût estimé de la gratuité du permis par le RN" }],
     sources: [
       { label: "Euronews, 17 nov. 2026", url: "https://fr.euronews.com/2026/11/17/presidentielle-2027-le-pen-promet-une-prime-dactivite-pour-les-jeunes-melenchon-souhaite-u" }
@@ -310,7 +323,8 @@ un plan inédit de départs volontaires avec indemnité (« je ne propose pas la
       { label: "AFP, 16 nov. 2026" }
     ] },
   { id: "p36", candidateId: "glucksmann", themeId: "economie",
-    text: "Pass mobilité à 1 € par jour pour les moins de 25 ans, valable pour tous les transports du quotidien et financé par une taxation des plus hauts patrimoines ; statut et droits spécifiques pour les familles monoparentales (garde aménagée, places privilégiées en crèche, pension alimentaire).",
+    text: "Pass mobilité à 1 € par jour pour les moins de 25 ans, valable pour tous les transports du quotidien et financé par une taxation des plus hauts patrimoines ; statut et droits spécifiques pour les fami
+lles monoparentales (garde aménagée, places privilégiées en crèche, pension alimentaire).",
     chiffres: [{ valeur: "1 €/jour", contexte: "pass mobilité pour les moins de 25 ans" }],
     sources: [
       { label: "Euronews, 17 nov. 2026", url: "https://fr.euronews.com/2026/11/17/presidentielle-2027-le-pen-promet-une-prime-dactivite-pour-les-jeunes-melenchon-souhaite-u" }
@@ -331,7 +345,8 @@ un plan inédit de départs volontaires avec indemnité (« je ne propose pas la
     text: "Logement et travail : priorité aux personnes qui travaillent et aux familles avec enfants dans l'accès aux logements sociaux, favoriser l'accession à la propriété des locataires HLM, supprimer l'encadrement des loyers et abaisser massivement les charges pour les travailleurs et les PME.",
     sources: [
       { label: "Entrevue, 16 nov. 2026", url: "https://entrevue.fr/presidentielle-2027/presidentielle-2027-les-temps-forts-et-les-propositions-des-cinq-candidats/" },
-      { label: "Euronews, 17 nov. 2026", url: "https://fr.euronews.com/2026/11/17/presidentielle-2027-le-pen-promet-une-prime-dactivite-pour-les-jeunes-melenchon-souhaite-u" }
+      {
+ label: "Euronews, 17 nov. 2026", url: "https://fr.euronews.com/2026/11/17/presidentielle-2027-le-pen-promet-une-prime-dactivite-pour-les-jeunes-melenchon-souhaite-u" }
     ] },
   { id: "p40", candidateId: "roussel", themeId: "economie",
     text: "Nationaliser TotalEnergies : indemnisation sans perte des petits porteurs détenant jusqu'à 20 000 € d'actions, échange des titres des grands actionnaires (y compris étrangers) contre des obligations d'État indexées sur le Livret A ; défend le nucléaire « pour faire fonctionner les usines » et assume de ne pas être « pour la décroissance ».",
@@ -345,6 +360,49 @@ un plan inédit de départs volontaires avec indemnité (« je ne propose pas la
     sources: [
       { label: "franceinfo, 15 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle-2027-je-ne-suis-pas-un-macroniste-affirme-teddy-riner_8283248.html" },
       { label: "Entrevue, 14 nov. 2026", url: "https://entrevue.fr/presidentielle-2027/presidentielle-2027-les-temps-forts-et-les-propositions-des-cinq-candidats/" }
+    ] },
+  { id: "p42", candidateId: "lepen", themeId: "travail",
+    text: "Programme retraites présenté le 17 novembre : création d'un « pilier de capitalisation » en plus du système par répartition, et départ possible à 60 ans avec 40 annuités pour ceux qui ont commencé à travailler avant 20 ans ; défend aussi l'indexation des aides et des minima sur l'inflation.",
+    chiffres: [{ valeur: "60 ans", contexte: "départ possible avec 40 annuités pour entrées dans la vie active avant 20 ans" }, { valeur: "40 annuités", contexte: "cotisation requise pour ce départ anticipé" }],
+    sources: [
+      { label: "TF1info, 17 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/presidentielle-2027-qui-propose-et-qui-s-oppose-a-l-introduction-d-une-retraite-par-capitalisation-2476357.html" },
+      { label: "LCP, 17 nov. 2026", url: "https://lcp.fr/actualites/logement-associations-jeunesse-ce-qu-il-faut-retenir-du-debat-presidentiel-sur-lci" }
+    ] },
+  { id: "p43", candidateId: "attal", themeId: "travail",
+    text: "Écarte la question de l'âge légal et propose de conserver la durée de cotisation en prenant en compte la pénibilité, avec un « pilier de capitalisation » et une revalorisation des toutes petites retraites (débat LCI du 16 nov.).",
+    sources: [
+      { label: "LCP, 17 nov. 2026", url: "https://lcp.fr/actualites/logement-associations-jeunesse-ce-qu-il-faut-retenir-du-debat-presidentiel-sur-lci" },
+      { label: "TF1info, 17 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/presidentielle-2027-qui-propose-et-qui-s-oppose-a-l-introduction-d-une-retraite-par-capitalisation-2476357.html" }
+    ] },
+  { id: "p44", candidateId: "retailleau", themeId: "travail",
+    text: "Défend un âge légal de départ à la retraite à 65 ans (« sans cette borne d'âge on fabrique de la pauvreté ») et un « pilier de capitalisation » ; juge que le système est « au bord du gouffre » (débat LCI du 16 nov.).",
+    chiffres: [{ valeur: "65 ans", contexte: "âge légal de départ défendu" }],
+    sources: [
+      { label: "LCP, 17 nov. 2026", url: "https://lcp.fr/actualites/logement-associations-jeunesse-ce-qu-il-faut-retenir-du-debat-presidentiel-sur-lci" }
+    ] },
+  { id: "p45", candidateId: "glucksmann", themeId: "economie",
+    text: "S'engage à loger, s'il est élu, « ces 3 000 enfants qui dorment dans la rue » en trois semaines, une mesure qu'il présente comme sa priorité ; souhaite aussi revaloriser les petites retraites « au-dessus de l'inflation » (débat LCI du 16 nov.).",
+    chiffres: [{ valeur: "3 000 enfants", contexte: "enfants sans domicile à loger en 3 semaines" }, { valeur: "3 semaines", contexte: "délai promis pour les loger" }],
+    sources: [
+      { label: "LCP, 17 nov. 2026", url: "https://lcp.fr/actualites/logement-associations-jeunesse-ce-qu-il-faut-retenir-du-debat-presidentiel-sur-lci" }
+    ] },
+  { id: "p46", candidateId: "lepen", themeId: "institutions",
+    text: "Supprimer les subventions publiques aux associations jugées « politisées », c'est-à-dire celles qui donnent une consigne de vote ou dénoncent des partis politiques, tout en assurant qu'aucun dispositif essentiel comme celui des Restos du Cœur ne serait remis en cause (débat LCI du 16 nov.).",
+    sources: [
+      { label: "LCP, 17 nov. 2026", url: "https://lcp.fr/actualites/logement-associations-jeunesse-ce-qu-il-faut-retenir-du-debat-presidentiel-sur-lci" },
+      { label: "AFP, 16 nov. 2026" }
+    ] },
+  { id: "p47", candidateId: "lepen", themeId: "economie",
+    text: "Instaurer une « priorité nationale » d'accès au logement social pour les Français (une priorité, pas une exclusivité, précise-t-elle) et mettre fin à la loi SRU obligeant les communes à construire du logement social (débat LCI du 16 nov.).",
+    sources: [
+      { label: "LCP, 17 nov. 2026", url: "https://lcp.fr/actualites/logement-associations-jeunesse-ce-qu-il-faut-retenir-du-debat-presidentiel-sur-lci" },
+      { label: "AFP, 16 nov. 2026" }
+    ] },
+  { id: "p48", candidateId: "melenchon", themeId: "economie",
+    text: "Logement : permettre aux préfets de réquisitionner les logements vides « pour ne pas laisser des gens dans leur voiture », et proposer d'utiliser les bureaux vides pour créer des logements étudiants ; renforcement des droits des locataires et maintien de la loi SRU (débat LCI du 16 nov.).",
+    sources: [
+      { label: "AFP, 16 nov. 2026" },
+      { label: "LCP, 17 nov. 2026", url: "https://lcp.fr/actualites/logement-associations-jeunesse-ce-qu-il-faut-retenir-du-debat-presidentiel-sur-lci" }
     ] }
 ];
 
@@ -360,7 +418,8 @@ var props = (function () {
   return INITIAL_PROPOSITIONS.slice();
 })();
 function persist() {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(props)); } catch (e) {}
+  try { localStorage.setItem(STORAGE_KEY, JSO
+N.stringify(props)); } catch (e) {}
 }
 function esc(s) {
   return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -379,6 +438,6 @@ function card(p) {
     src = '<div class="src">';
     for (var i = 0; i < sources.length; i++) {
       var s = sources[i];
-      src 
+      
 
 ... [Content truncated]
