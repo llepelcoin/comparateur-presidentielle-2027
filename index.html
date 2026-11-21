@@ -91,7 +91,8 @@ publique / PS (primaire)", bloc: "Centre gauche", color: "#e07a8f" },
   { id: "polony", name: "Natacha Polony", party: "Sans étiquette (souverainiste)", bloc: "Souverainiste", color: "#8b5e4b" },
   { id: "riner", name: "Teddy Riner", party: "Sans étiquette (société civile)", bloc: "Hors partis", color: "#c99700" },
   { id: "roussel", name: "Fabien Roussel", party: "Parti communiste français", bloc: "Gauche", color: "#8f1d21" },
-  { id: "zemmour", name: "Éric Zemmour", party: "Reconquête!", bloc: "Extrême droite", color: "#101f3c" }
+  { id: "zemmour", name: "Éric Zemmour", party: "Reconquête!", bloc: "Extrême droite", color: "#101f3c" },
+  { id: "villepin", name: "Dominique de Villepin", party: "La France humaniste (sans étiquette)", bloc: "Souverainiste / gaulliste", color: "#6b8e4e" }
 ];
 
 var INITIAL_PROPOSITIONS = [
@@ -403,6 +404,81 @@ lles monoparentales (garde aménagée, places privilégiées en crèche, pension
     sources: [
       { label: "AFP, 16 nov. 2026" },
       { label: "LCP, 17 nov. 2026", url: "https://lcp.fr/actualites/logement-associations-jeunesse-ce-qu-il-faut-retenir-du-debat-presidentiel-sur-lci" }
+    ] },
+  { id: "p49", candidateId: "villepin", themeId: "institutions",
+    text: "Officialise sa candidature à la présidentielle (« je suis candidat ») en se posant en alternative au RN, au centre macronien et à La France insoumise, qu'il juge responsables d'un « pourrissement » du pays, et publie un programme de 258 propositions en quatre parties (« Dire la vérité », « Redresser l'État », « Vivre ensemble », « Continuer la France »).",
+    chiffres: [{ valeur: "258", contexte: "propositions au programme publié le 20 novembre" }],
+    sources: [
+      { label: "LCP, 20 nov. 2026", url: "https://lcp.fr/actualites/presidentielle-2027-que-retenir-des-258-propositions-du-programme-de-dominique-de" },
+      { label: "AFP, 20 nov. 2026" }
+    ] },
+  { id: "p50", candidateId: "villepin", themeId: "finances",
+    text: "Première mesure annoncée : « mettre de l'ordre dans les comptes publics » par une loi organique fixant une trajectoire pluriannuelle de réduction des déficits sur cinq ans, pour repasser sous 3 % du PIB en 2031 ; veut aussi « ouvrir les boîtes noires des niches fiscales » et créer une commission d'enquête exceptionnelle sur la dégradation des comptes publics depuis dix ans.",
+    chiffres: [{ valeur: "3% du PIB", contexte: "seuil de déficit visé en 2031" }, { valeur: "5 ans", contexte: "horizon de la loi organique sur les déficits" }],
+    sources: [
+      { label: "LCP, 20 nov. 2026", url: "https://lcp.fr/actualites/presidentielle-2027-que-retenir-des-258-propositions-du-programme-de-dominique-de" }
+    ] },
+  { id: "p51", candidateId: "villepin", themeId: "institutions",
+    text: "« Démocratie du consentement » : référendum sur les retraites organisé en avril 2028 après une année de débat (experts, conférence sociale, convention citoyenne, Parlement), en refusant une réforme « sortie du chapeau d'un candidat » ; abaissement du droit de vote à 16 ans, principe du vote obligatoire sans sanction avec comptabilisation du vote blanc, et référendums citoyens réguliers.",
+    chiffres: [{ valeur: "16 ans", contexte: "droit de vote proposé" }, { valeur: "avr. 2028", contexte: "référendum annoncé sur les retraites" }],
+    sources: [
+      { label: "LCP, 20 nov. 2026", url: "https://lcp.fr/actualites/presidentielle-2027-que-retenir-des-258-propositions-du-programme-de-dominique-de" },
+      { label: "20 Minutes, 20 nov. 2026", url: "https://www.20minutes.fr/politique/4264442-20261120-presidentielle-2027-dominique-villepin-entre-campagne-3-sondages" }
+    ] },
+  { id: "p52", candidateId: "roussel", themeId: "economie",
+    text: "« France des bâtisseurs » : objectif annuel de 400 000 à 500 000 logements neufs et d'un million de logements rénovés, avec un budget de 10 milliards d'euros ; transformer l'Anah en EPIC centralisant les aides à la construction et à la rénovation (guichet unique), TVA à 5,5 % sur les matériaux biosourcés et aides réservées aux emplois non délocalisables (Sommet de la construction de la FFB).",
+    chiffres: [{ valeur: "400 000 à 500 000", contexte: "logements neufs visés par an" }, { valeur: "1 million", contexte: "logements rénovés par an" }, { valeur: "10 Md€", contexte: "budget global annoncé du plan logement" }, { valeur: "5,5%", contexte: "TVA sur les matériaux biosourcés" }],
+    sources: [
+      { label: "Batiweb, 20 nov. 2026", url: "https://www.batiweb.com/actualites/construction/presidentielle-2027-propositions-candidats-btp-copier-49646" }
+    ] },
+  { id: "p53", candidateId: "attal", themeId: "economie",
+    text: "Créer une banque publique d'investissement sur le modèle de Bpifrance, pouvant financer jusqu'à 50 % du montant de l'achat de logements (« choc d'offre » sur le logement) ; également une loi de programmation normative et fiscale de trois ans et une refonte du Code de la construction (Sommet de la construction de la FFB, 19 nov.).",
+    chiffres: [{ valeur: "50%", contexte: "part maximale d'un achat finançable par la banque publique d'investissement" }],
+    sources: [
+      { label: "Batiweb, 20 nov. 2026", url: "https://www.batiweb.com/actualites/construction/presidentielle-2027-propositions-candidats-btp-copier-49646" },
+      { label: "Sud Ouest, 12 nov. 2026" }
+    ] },
+  { id: "p54", candidateId: "glucksmann", themeId: "economie",
+    text: "Objectif de 420 000 logements construits par an et « plan Bâtisseur École » : 4 000 écoles rénovées par an et 2 800 collèges et lycées, au nom de la lutte contre le « délabrement du bâti scolaire » (Sommet de la construction de la FFB, 19 nov.).",
+    chiffres: [{ valeur: "420 000", contexte: "logements construits par an, objectif visé" }, { valeur: "4 000", contexte: "écoles rénovées par an" }, { valeur: "2 800", contexte: "collèges et lycées concernés par la rénovation" }],
+    sources: [
+      { label: "Batiweb, 20 nov. 2026", url: "https://www.batiweb.com/actualites/construction/presidentielle-2027-propositions-candidats-btp-copier-49646" }
+    ] },
+  { id: "p55", candidateId: "lepen", themeId: "economie",
+    text: "Transformer les bureaux vacants en logements (9 millions de m2 de bureaux vacants évoqués, reconvertibles en 6 à 7 millions de m2 d'habitation), mettre le foncier public à disposition des constructeurs pour des loyers modérés, abroger l'obligation ZAN par ordonnances et indemniser les entreprises accueillant des apprentis jusqu'au bac+3 (Sommet de la construction de la FFB, 19 nov.).",
+    chiffres: [{ valeur: "9 M m2", contexte: "bureaux vacants évoqués comme reconvertibles" }, { valeur: "bac+3", contexte: "niveau d'études des apprentis ouvrant droit à indemnisation pour l'entreprise" }],
+    sources: [
+      { label: "Batiweb, 20 nov. 2026", url: "https://www.batiweb.com/actualites/construction/presidentielle-2027-propositions-candidats-btp-copier-49646" }
+    ] },
+  { id: "p56", candidateId: "philippe", themeId: "economie",
+    text: "Logement « ennemi principal du pouvoir d'achat » : objectif de 4 millions de logements supplémentaires en dix ans (400 000 neufs ou réhabilités par an), moratoire sur l'interdiction des passoires thermiques et sur les prochains seuils de la RE2020 pour la durée du quinquennat, flat tax sur l'investissement locatif et exonération fiscale de 3 ans pour transformer des bureaux en logements.",
+    chiffres: [{ valeur: "4 M", contexte: "logements supplémentaires visés en 10 ans" }, { valeur: "400 000/an", contexte: "logements neufs ou réhabilités" }, { valeur: "3 ans", contexte: "exonération fiscale pour la transformation de bureaux en logements" }],
+    sources: [
+      { label: "Batiweb, 20 nov. 2026", url: "https://www.batiweb.com/actualites/construction/presidentielle-2027-propositions-candidats-btp-copier-49646" }
+    ] },
+  { id: "p57", candidateId: "retailleau", themeId: "economie",
+    text: "« Bulldozer sur les normes » : objectif de « remettre un million de logements en cinq ans », assouplissement du ZAN pour les territoires ruraux, division par deux des délais de construction, sanction des recours abusifs ; parallèlement, exonération totale des cotisations sociales sur les heures supplémentaires (Sommet de la construction de la FFB, 19 nov.).",
+    chiffres: [{ valeur: "1 M", contexte: "logements à remettre sur le marché en 5 ans" }, { valeur: "100%", contexte: "exonération des cotisations sociales sur les heures supplémentaires" }],
+    sources: [
+      { label: "Batiweb, 20 nov. 2026", url: "https://www.batiweb.com/actualites/construction/presidentielle-2027-propositions-candidats-btp-copier-49646" }
+    ] },
+  { id: "p58", candidateId: "tondelier", themeId: "ecologie",
+    text: "Massifier la rénovation énergétique à 500 000 logements par an (renforcement de MaPrimeRénov', banque publique de la rénovation), doubler les exigences de la loi SRU avec un quota porté à 30 % dans les territoires tendus, et financer le plan par une taxe de 20 % sur les successions supérieures à 20 millions d'euros (rendement estimé : 15 milliards d'euros).",
+    chiffres: [{ valeur: "500 000/an", contexte: "logements rénovés énergétiquement, objectif" }, { valeur: "30%", contexte: "quota SRU proposé dans les territoires tendus" }, { valeur: "20 M€", contexte: "seuil des successions soumises à la taxe de 20 %" }, { valeur: "15 Md€", contexte: "rendement estimé de la taxe sur les successions" }],
+    sources: [
+      { label: "Batiweb, 20 nov. 2026", url: "https://www.batiweb.com/actualites/construction/presidentielle-2027-propositions-candidats-btp-copier-49646" }
+    ] },
+  { id: "p59", candidateId: "tondelier", themeId: "travail",
+    text: "Défend un Smic à 2 000 euros bruts, accompagné de dispositifs différenciés pour aider les TPE et PME à l'absorber, et préfère parler de « cotisations » plutôt que de « charges » patronales (Sommet de la construction de la FFB, 19 nov.).",
+    chiffres: [{ valeur: "2 000 € brut", contexte: "Smic défendu par Les Écologistes" }],
+    sources: [
+      { label: "Batiweb, 20 nov. 2026", url: "https://www.batiweb.com/actualites/construction/presidentielle-2027-propositions-candidats-btp-copier-49646" }
+    ] },
+  { id: "p60", candidateId: "tondelier", themeId: "institutions",
+    text: "Tend « la main » à Jean-Luc Mélenchon en vue d'une coalition autour de sa candidature, stratégie contestée en interne : Yannick Jadot et Jérémie Iordanoff annoncent leur départ des Écologistes le 19 novembre, dénonçant une « trahison » ; les militants trancheront à mi-décembre.",
+    chiffres: [{ valeur: "mi-déc. 2026", contexte: "vote des militants des Écologistes sur la stratégie présidentielle" }],
+    sources: [
+      { label: "Huffington Post, 20 nov. 2026", url: "https://www.huffingtonpost.fr/politique/article/apres-la-main-tendue-de-tondelier-a-melenchon-yannick-jadot-et-jeremie-iordanoff-quittent-les-ecologistes_361517.html" }
     ] }
 ];
 
@@ -438,6 +514,193 @@ function card(p) {
     src = '<div class="src">';
     for (var i = 0; i < sources.length; i++) {
       var s = sources[i];
-      
+      src += s.url
+        ? '<a href="' + esc(s.url) + '" target="_blank" rel="noreferrer">↗ ' + esc(s.label) + "</a>"
+        : '<span style="color:#94a3b8">' + esc(s.label) + "</span>";
+      if (i < sources.length - 1) src += ' &nbsp;·&nbsp; ';
+    }
+    src += "</div>";
+  }
+  var chf = "";
+  var chiffres = p.chiffres || [];
+  if (chiffres.length > 0) {
+    chf = '<div class="chiffres">';
+    for (var i = 0; i < chiffres.length; i++) {
+      chf += '<span class="chiffre">📊 <b>' + esc(chiffres[i].valeur) + "</b>" + (chiffres[i].contexte ? " " + esc(chiffres[i].contexte) : "") + "</span>";
+    }
+    chf += "</div>";
+  }
+  var del = p.mine ? '<button class="del" title="Supprimer" onclick="removeProp(\'' + p.id + '\')">✕</button>' : "";
+  var badge = p.mine ? '<span class="badge">ma note</span>' : "";
+  return '<div class="card">' + del +
+    '<div class="who"><span class="dot" style="background:' + c.color + '"></span><b>' + esc(c.name) + "</b><span>" + esc(c.party) + "</span>" + badge + "</div>" +
+    "<p>" + esc(p.text) + "</p>" + chf + src + "</div>";
+}
 
-... [Content truncated]
+function render() {
+  var html = "<h1>🇫🇷 Comparateur des programmes — Présidentielle 2027</h1>" +
+    '<p class="sub">1er tour : 18 avril 2027 · 2nd tour : 2 mai 2027 · Parrainages avant le 12 mars 2027</p>' +
+    '<p class="tiny">Outil personnel d\'analyse : qui propose quoi, thème par thème. ' + props.length + " proposition" + (props.length > 1 ? "s" : "") + " enregistrée" + (props.length > 1 ? "s" : "") + " · tes notes sont sauvegardées dans ce navigateur.</p>";
+
+  var tabs = [["themes", "📂 Par thème"], ["candidats", "👤 Par candidat"], ["matrice", "🧮 Vue d'ensemble"], ["ajouter", "➕ Ajouter"]];
+  html += '<nav>';
+  for (var i = 0; i < tabs.length; i++)
+    html += '<button class="tab' + (state.tab === tabs[i][0] ? " active" : "") + '" onclick="setTab(\'' + tabs[i][0] + "')\">" + tabs[i][1] + "</button>";
+  html += "</nav>";
+
+  if (state.tab === "themes") {
+    html += '<div class="chips">';
+    for (var i = 0; i < THEMES.length; i++)
+      html += '<button class="chip' + (state.theme === THEMES[i].id ? " active" : "") + '" onclick="setTheme(\'' + THEMES[i].id + "')\">" + THEMES[i].icon + " " + THEMES[i].label + "</button>";
+    html += "</div>";
+    var t = theme(state.theme);
+    html += "<h2>" + t.icon + " " + t.label + " — propositions</h2>";
+    var list = props.filter(function (p) { return p.themeId === state.theme; });
+    html += '<div class="grid">';
+    for (var i = 0; i < list.length; i++) html += card(list[i]);
+    html += "</div>";
+    if (list.length === 0)
+      html += '<div class="empty">Aucune proposition enregistrée sur ce thème.<br>Ajoute-en via l\'onglet « ➕ Ajouter ».</div>';
+  }
+
+  if (state.tab === "candidats") {
+    html += '<div class="chips">';
+    for (var i = 0; i < CANDIDATES.length; i++) {
+      var c = CANDIDATES[i];
+      html += '<button class="chip' + (state.cand === c.id ? " active" : "") + '" onclick="setCand(\'' + c.id + "')\"><span class=\"dot\" style=\"background:" + c.color + '"></span>' + esc(c.name) + "</button>";
+    }
+    html += "</div>";
+    var c = cand(state.cand);
+    html += '<div class="card" style="margin-bottom:16px"><div class="who"><span class="dot" style="background:' + c.color + '"></span><h2 style="margin:0">' + esc(c.name) + "</h2></div><p>" + esc(c.party) + " · " + esc(c.bloc) + "</p></div>";
+    var any = false;
+    for (var j = 0; j < THEMES.length; j++) {
+      var list = props.filter(function (p) { return p.themeId === THEMES[j].id && p.candidateId === state.cand; });
+      if (list.length === 0) continue;
+      any = true;
+      html += '<h3 class="sec">' + THEMES[j].icon + " " + THEMES[j].label + "</h3><div class=\"grid\">";
+      for (var i = 0; i < list.length; i++) html += card(list[i]);
+      html += "</div>";
+    }
+    if (!any) html += '<div class="empty">Aucune proposition enregistrée pour ce candidat. Utilise l\'onglet « ➕ Ajouter ».</div>';
+  }
+
+  if (state.tab === "matrice") {
+    html += "<h2>🧮 Vue d'ensemble de la collecte</h2>" +
+      '<p class="sub" style="margin-bottom:14px">Nombre de propositions par candidat et par thème.</p><table><thead><tr><th style="text-align:left">Candidat</th>';
+    for (var i = 0; i < THEMES.length; i++) html += "<th class=\"c\" title=\"" + esc(THEMES[i].label) + "\">" + THEMES[i].icon + "</th>";
+    html += '<th class="c">Σ</th></tr></thead><tbody>';
+    for (var i = 0; i < CANDIDATES.length; i++) {
+      var c = CANDIDATES[i], total = 0;
+      html += '<tr><td><span class="dot" style="background:' + c.color + '"></span> <b>' + esc(c.name) + "</b></td>";
+      for (var j = 0; j < THEMES.length; j++) {
+        var n = props.filter(function (p) { return p.candidateId === c.id && p.themeId === THEMES[j].id; }).length;
+        total += n;
+        html += '<td class="c">' + (n > 0 ? '<span class="num">' + n + "</span>" : '<span class="num zero">·</span>') + "</td>";
+      }
+      html += '<td class="c"><b>' + total + "</b></td></tr>";
+    }
+    html += "</tbody></table>";
+  }
+
+  if (state.tab === "ajouter") {
+    html += "<h2>➕ Ajouter une proposition</h2>" +
+      '<div class="note">💾 <b>Sauvegarde automatique</b> : tes notes sont conservées dans ce navigateur, même après fermeture. Utilise « Exporter » pour les transférer vers un autre appareil ou une autre personne (puis « Importer » de l\'autre côté).</div>' +
+      '<form onsubmit="return addProp(event)">' +
+      '<div class="row2"><label>Candidat<select id="f-cand">';
+    for (var i = 0; i < CANDIDATES.length; i++)
+      html += '<option value="' + CANDIDATES[i].id + '">' + esc(CANDIDATES[i].name) + " — " + esc(CANDIDATES[i].party) + "</option>";
+    html += '</select></label><label>Thème<select id="f-theme">';
+    for (var i = 0; i < THEMES.length; i++)
+      html += '<option value="' + THEMES[i].id + '">' + THEMES[i].icon + " " + THEMES[i].label + "</option>";
+    html += '</select></label></div>' +
+      '<label>Proposition / position<textarea id="f-text" rows="3" placeholder="Ex. : Ramener l\'âge légal de départ à la retraite à 62 ans…"></textarea></label>' +
+      '<div class="row2"><label>Source 1 (optionnel)<input id="f-srclabel1" placeholder="Ex. : interview BFM, 12 nov. 2026" /></label>' +
+      '<label>Lien source 1 (optionnel)<input id="f-srcurl1" placeholder="https://…" /></label></div>' +
+      '<div class="row2"><label>Source 2 (optionnel)<input id="f-srclabel2" placeholder="Ex. : programme officiel, p. 12" /></label>' +
+      '<label>Lien source 2 (optionnel)<input id="f-srcurl2" placeholder="https://…" /></label></div>' +
+      '<div class="row2"><label>Donnée chiffrée (optionnel)<input id="f-chval" placeholder="Ex. : -50 Md€, 57% → 43%…" /></label>' +
+      '<label>Contexte du chiffre<input id="f-chctxe" placeholder="Ex. : part des énergies fossiles d\'ici 2035" /></label></div>' +
+      '<button class="btn" type="submit">Enregistrer</button>' +
+      '<span class="flash" id="flash"></span></form>' +
+      '<div style="margin-top:18px;display:flex;gap:10px;flex-wrap:wrap">' +
+      '<button class="btn ghost" onclick="exportJSON()">⬇ Exporter mes notes (JSON)</button>' +
+      '<button class="btn ghost" onclick="document.getElementById(\'imp\').click()">⬆ Importer des notes (JSON)</button>' +
+      '<input type="file" id="imp" accept=".json,application/json" style="display:none" onchange="importJSON(event)" />' +
+      '<button class="btn ghost" onclick="resetProps()">↺ Réinitialiser</button></div>' +
+      '<p class="tiny">Export/Import : transfère uniquement les propositions ajoutées manuellement ("ma note").</p>';
+  }
+
+  html += '<footer>Candidats déclarés recensés début novembre 2026 — la liste évolue (primaires, désistements possibles). Toujours vérifier les propositions dans les sources originales.</footer>';
+  app.innerHTML = html;
+}
+
+// ============ ACTIONS ============
+window.setTab = function (t) { state.tab = t; render(); };
+window.setTheme = function (t) { state.theme = t; state.tab = "themes"; render(); };
+window.setCand = function (c) { state.cand = c; state.tab = "candidats"; render(); };
+window.removeProp = function (id) { props = props.filter(function (p) { return p.id !== id; }); persist(); render(); };
+window.addProp = function (ev) {
+  ev.preventDefault();
+  var text = document.getElementById("f-text").value.trim();
+  var fl = document.getElementById("flash");
+  if (!text) { fl.textContent = "⚠️ Écris d'abord une proposition."; return false; }
+  var sources = [];
+  [["f-srclabel1", "f-srcurl1"], ["f-srclabel2", "f-srcurl2"]].forEach(function (ids) {
+    var lbl = document.getElementById(ids[0]).value.trim();
+    if (lbl) sources.push({ label: lbl, url: document.getElementById(ids[1]).value.trim() || null });
+  });
+  var chval = document.getElementById("f-chval").value.trim();
+  props.push({
+    id: "u" + Date.now(),
+    candidateId: document.getElementById("f-cand").value,
+    themeId: document.getElementById("f-theme").value,
+    text: text,
+    sources: sources,
+    chiffres: chval ? [{ valeur: chval, contexte: document.getElementById("f-chctxe").value.trim() }] : [],
+    mine: true
+  });
+  persist(); render();
+  return false;
+};
+window.exportJSON = function () {
+  var mine = props.filter(function (p) { return p.mine; });
+  var blob = new Blob([JSON.stringify({ type: "pres2027-notes", propositions: mine }, null, 2)], { type: "application/json" });
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(blob);
+  a.download = "notes-presidentielle-2027.json";
+  a.click();
+  URL.revokeObjectURL(a.href);
+};
+window.importJSON = function (ev) {
+  var file = ev.target.files[0];
+  if (!file) return;
+  var reader = new FileReader();
+  reader.onload = function () {
+    try {
+      var data = JSON.parse(reader.result);
+      var incoming = data.propositions || data;
+      if (!(incoming instanceof Array)) throw new Error("format");
+      var existing = {}; props.forEach(function (p) { existing[p.id] = true; });
+      var added = 0;
+      incoming.forEach(function (p) {
+        if (p && p.text && p.candidateId && !existing[p.id]) { p.mine = true; props.push(p); added++; }
+      });
+      persist(); render();
+      alert("Import : " + added + " proposition(s) ajoutée(s).");
+    } catch (e) { alert("Fichier invalide."); }
+  };
+  reader.readAsText(file);
+  ev.target.value = "";
+};
+window.resetProps = function () {
+  if (confirm("Réinitialiser toutes les propositions aux données de base ? Tes notes personnelles seront supprimées.")) {
+    props = INITIAL_PROPOSITIONS.slice();
+    persist(); render();
+  }
+};
+
+render();
+</script>
+</body>
+</html>
+
