@@ -69,7 +69,9 @@ var THEMES = [
   { id: "sante", label: "Santé", icon: "🏥" },
   { id: "education", label: "Éducation & jeunesse", icon: "🎓" },
   { id: "finances", label: "Finances publiques", icon: "📊" },
-  { id: "international", label: "International & défense", icon: "🌍" }
+  { id: "international", label: "International & défense", icon: "🌍" },
+  { id: "logement", label: "Logement", icon: "🏠" },
+  { id: "numerique", label: "Numérique & IA", icon: "🤖" }
 ];
 
 var CANDIDATES = [
@@ -567,6 +569,36 @@ var DIFFICULTE = {
 };
 function difficulte(p) { return p.difficulte || DIFFICULTE[p.id] || null; }
 
+// Re-rattachement de thèmes (les fiches restent en base avec leur thème d'origine).
+var THEME_OVERRIDE = {
+  p38: "logement", p39: "logement", p45: "logement", p47: "logement", p48: "logement",
+  p52: "logement", p53: "logement", p54: "logement", p55: "logement", p56: "logement",
+  p57: "logement", p58: "logement", p12: "numerique"
+};
+// Mesures phares mises en avant dans l'onglet du candidat.
+var PHARES = {
+  p5: true,   // Mélenchon : Smic + retraites 60 ans
+  p13: true,  // Knafo : -800 000 postes
+  p17: true,  // Le Pen : 223 000 postes non remplacés
+  p27: true,  // Roussel : 500 000 agents publics
+  p28: true,  // Attal : 100 000 départs volontaires
+  p40: true,  // Roussel : nationalisation TotalEnergies
+  p42: true,  // Le Pen : réforme retraites + capitalisation
+  p44: true,  // Retailleau : retraite à 65 ans
+  p50: true,  // Villepin : loi organique sur les déficits
+  p51: true,  // Villepin : référendum retraites + vote à 16 ans
+  p56: true,  // Philippe : 4 M logements en 10 ans
+  p58: true,  // Tondelier : rénovation 500 000/an + SRU
+  p61: true,  // Zemmour : suppression de l'Arcom
+  p62: true,  // Roussel : carburants 1,60-1,70 €
+  p30: true,  // Glucksmann : salaires enseignants
+  p45: true,  // Glucksmann : 3 000 enfants logés
+  p4: true,   // Polony : priorité production française
+  p9: true,   // Riner : hausse du salaire net
+  p24: true   // Riner : sortie du carcan des 35 heures
+};
+function tOf(p) { return THEME_OVERRIDE[p.id] || p.themeId; }
+
 // ============ ÉTAT ============
 var state = { tab: "themes", theme: THEMES[0].id, cand: CANDIDATES[0].id };
 var props = (function () {
@@ -621,7 +653,7 @@ function card(p) {
     chf += '<span class="chiffre" style="background:' + dcol[0] + ';color:' + dcol[1] + ';border-color:' + dcol[2] + '">🛠️ Mise en œuvre : <b>' + esc(d.niveau) + "</b>" + (d.raison ? " · " + esc(d.raison) : "") + "</span>";
   }
   var del = p.mine ? '<button class="del" title="Supprimer" onclick="removeProp(\'' + p.id + '\')">✕</button>' : "";
-  var badge = p.mine ? '<span class="badge">ma note</span>' : "";
+  var badge = (p.mine ? '<span class="badge">ma note</span> ' : "") + (PHARES[p.id] ? '<span class="badge" style="background:#fef9c3;color:#854d0e">⭐ phare</span>' : "");
   return '<div class="card">' + del +
     '<div class="who"><span class="dot" style="background:' + c.color + '"></span><b>' + esc(c.name) + "</b><span>" + esc(c.party) + "</span>" + badge + "</div>" +
     "<p>" + esc(p.text) + "</p>" + chf + src + "</div>";
@@ -645,7 +677,7 @@ function render() {
     html += "</div>";
     var t = theme(state.theme);
     html += "<h2>" + t.icon + " " + t.label + " — propositions</h2>";
-    var list = props.filter(function (p) { return p.themeId === state.theme; });
+    var list = props.filter(function (p) { return tOf(p) === state.theme; });
     var order = {}; for (var k = 0; k < CANDIDATES.length; k++) order[CANDIDATES[k].id] = k;
     list.sort(function (a, b) { return (order[a.candidateId] ?? 999) - (order[b.candidateId] ?? 999); });
     html += '<div class="grid">';
@@ -665,8 +697,15 @@ function render() {
     var c = cand(state.cand);
     html += '<div class="card" style="margin-bottom:16px"><div class="who"><span class="dot" style="background:' + c.color + '"></span><h2 style="margin:0">' + esc(c.name) + "</h2></div><p>" + esc(c.party) + " · " + esc(c.bloc) + "</p></div>";
     var any = false;
+    var stars = props.filter(function (p) { return p.candidateId === state.cand && PHARES[p.id]; });
+    if (stars.length > 0) {
+      any = true;
+      html += '<h3 class="sec">⭐ Mesures phares</h3><div class="grid">';
+      for (var i = 0; i < stars.length; i++) html += card(stars[i]);
+      html += "</div>";
+    }
     for (var j = 0; j < THEMES.length; j++) {
-      var list = props.filter(function (p) { return p.themeId === THEMES[j].id && p.candidateId === state.cand; });
+      var list = props.filter(function (p) { return tOf(p) === THEMES[j].id && p.candidateId === state.cand && !PHARES[p.id]; });
       if (list.length === 0) continue;
       any = true;
       html += '<h3 class="sec">' + THEMES[j].icon + " " + THEMES[j].label + "</h3><div class=\"grid\">";
@@ -685,7 +724,7 @@ function render() {
       var c = CANDIDATES[i], total = 0;
       html += '<tr><td><span class="dot" style="background:' + c.color + '"></span> <b>' + esc(c.name) + "</b></td>";
       for (var j = 0; j < THEMES.length; j++) {
-        var n = props.filter(function (p) { return p.candidateId === c.id && p.themeId === THEMES[j].id; }).length;
+        var n = props.filter(function (p) { return p.candidateId === c.id && tOf(p) === THEMES[j].id; }).length;
         total += n;
         html += '<td class="c">' + (n > 0 ? '<span class="num">' + n + "</span>" : '<span class="num zero">·</span>') + "</td>";
       }
