@@ -142,12 +142,6 @@ var INITIAL_PROPOSITIONS = [
     sources: [
       { label: "AFP, 9 nov. 2026" }
     ] },
-  { id: "p10", candidateId: "retailleau", themeId: "institutions",
-    text: "Ralliement à l'organisation d'une primaire élargie de la droite et du centre, qu'il situe dans la première quinzaine de février 2027 « au plus tard », si Édouard Philippe y participe.",
-    sources: [
-      { label: "AFP, 6 nov. 2026" },
-      { label: "AFP, 9 nov. 2026" }
-    ] },
   { id: "p11", candidateId: "philippe", themeId: "institutions",
     text: "Rejette fermement le principe d'une primaire de la droite et du centre, alors que 66 parlementaires (majorité Renaissance, UDI, MoDem) en appellent à l'organisation d'un candidat unique.",
     sources: [
@@ -178,12 +172,6 @@ var INITIAL_PROPOSITIONS = [
     sources: [
       { label: "TF1info, 9 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/en-direct-presidentielle-2027-marine-tondelier-invitee-du-20h-de-tf1-ce-lundi-9-novembre-colere-sociale-crise-lyceenne-pouvoir-d-achat-2474836.html" },
       { label: "TF1+, 9 nov. 2026", url: "https://www.tf1.fr/tf1/jt-20h/videos/marine-tondelier-invitee-du-20h-de-tf1-50006777.html" }
-    ] },
-  { id: "p16", candidateId: "tondelier", themeId: "institutions",
-    text: "Affirme qu'elle « ne se désistera pas » de la présidentielle, tout en se déclarant prête à ce que Les Écologistes « rejoignent une coalition » pour « quelque chose de plus grand ».",
-    sources: [
-      { label: "TF1info, 9 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/en-direct-presidentielle-2027-marine-tondelier-invitee-du-20h-de-tf1-ce-lundi-9-novembre-colere-sociale-crise-lyceenne-pouvoir-d-achat-2474836.html" },
-      { label: "Politique Matin, 10 nov. 2026", url: "https://www.politiquematin.fr/marine-tondelier-presidentielle-coalition-smic-tf1-10-novembre-2026" }
     ] },
   { id: "p17", candidateId: "lepen", themeId: "finances",
     text: "Le RN annonce le non-remplacement de 223 000 postes de fonctionnaires partant à la retraite « pour que l'État fonctionne mieux » (annonce de Jordan Bardella, 10 nov.).",
@@ -221,13 +209,6 @@ var INITIAL_PROPOSITIONS = [
     sources: [
       { label: "franceinfo, 10 nov. 2026", url: "https://www.franceinfo.fr/elections/presidentielle/eric-zemmour-leader-du-parti-d-extreme-droite-reconquete-officialise-sa-candidature-a-la-presidentielle_8276858.html" },
       { label: "Orange actu/AFP, 10 nov. 2026", url: "https://actu.orange.fr/france/eric-zemmour-annonce-sa-candidature-a-la-presidentielle-pour-quot-conserver-une-france-francaise-quot-CNT000002tED9S.html" }
-    ] },
-  { id: "p23", candidateId: "retailleau", themeId: "institutions",
-    text: "Propose une primaire de la droite et du centre sur deux tours les 31 janvier et 7 février 2027, dates soumises à Édouard Philippe, Gabriel Attal et David Lisnard (« le temps joue contre nous »).",
-    chiffres: [{ valeur: "31 janv. & 7 févr. 2027", contexte: "dates proposées pour la primaire" }],
-    sources: [
-      { label: "20 Minutes, 11 nov. 2026", url: "https://www.20minutes.fr/politique/4262102-20261111-presidentielle-2027-retailleau-soumet-philippe-attal-lisnard-dates-primaire" },
-      { label: "TF1info, 11 nov. 2026", url: "https://www.tf1info.fr/politique/elections/presidentielle/le-temps-joue-contre-nous-bruno-retailleau-propose-une-primaire-de-la-droite-et-du-centre-les-31-janvier-et-7-fevrier-2475141.html" }
     ] },
   { id: "p24", candidateId: "riner", themeId: "travail",
     text: "Propose de « sortir du carcan figé des 35 heures, mais sans le remettre en question », et de réduire l'écart entre salaire net et salaire brut en allégeant les charges.",
@@ -516,6 +497,76 @@ var INITIAL_PROPOSITIONS = [
 
 var STORAGE_KEY = "pres2027_props_v1";
 
+// Difficulté de mise en œuvre estimée, par proposition (Faible / Moyenne / Élevée / Très élevée).
+var DIFFICULTE = {
+  p1:  { niveau: "Élevée", raison: "planification d'ensemble : multiples lois et arbitrages économiques" },
+  p2:  { niveau: "Moyenne", raison: "politique énergétique graduée, levier réglementaire classique" },
+  p3:  { niveau: "Élevée", raison: "changement systémique : renouvelables, rail, agroalimentaire simultanés" },
+  p4:  { niveau: "Élevée", raison: "repose sur directive UE marchés publics à déroger" },
+  p5:  { niveau: "Très élevée", raison: "coût budgétaire massif (Smic, retraites) et conflit social annoncé" },
+  p6:  { niveau: "Élevée", raison: "financement de la prise en charge intégrale à trouver" },
+  p7:  { niveau: "Élevée", raison: "dépend des négociations internationales, marges présidentielles limitées" },
+  p8:  { niveau: "Moyenne", raison: "intention ouverte, paramètres à définir" },
+  p9:  { niveau: "Élevée", raison: "allègements de charges : coût compensé à trouver" },
+  p11: { niveau: "Faible", raison: "posture de campagne, sans mise en œuvre technique" },
+  p12: { niveau: "Élevée", raison: "crédit d'impôt coûteux ; former 20 M de personnes en 3 ans : logistique inédite" },
+  p13: { niveau: "Élevée", raison: "moratoire long (~20 ans de gels) et impact sur les services publics" },
+  p14: { niveau: "Faible", raison: "décret de répartition des compétences au gouvernement" },
+  p15: { niveau: "Élevée", raison: "1 M de véhicules : flotte industrielle à commander et stationner" },
+  p17: { niveau: "Moyenne", raison: "non-remplacements étalés, mais réorganisation lourde des services" },
+  p18: { niveau: "Faible", raison: "organisation du gouvernement par le président" },
+  p19: { niveau: "Moyenne", raison: "hausse du Smic léalisable, négociation sociale nécessaire" },
+  p20: { niveau: "Élevée", raison: "refondation complète de l'admission post-bac" },
+  p21: { niveau: "Faible", raison: "décision personnelle de candidature" },
+  p22: { niveau: "Faible", raison: "annonce de candidature" },
+  p24: { niveau: "Moyenne", raison: "loi + négociation avec les branches" },
+  p25: { niveau: "Très élevée", raison: "réforme de fond du régime par répartition, consensus nécessaire" },
+  p26: { niveau: "Moyenne", raison: "60 000 recrutements en 5 ans : crédible mais formant long" },
+  p27: { niveau: "Très élevée", raison: "~500 000 recrutements + 10 % d'indice : coût annuel en dizaines de Md€" },
+  p28: { niveau: "Moyenne", raison: "départs volontaires, faisable mais gains lents" },
+  p29: { niveau: "Moyenne", raison: "loi fiscale simple, mais optimisation et évasion à contenir" },
+  p30: { niveau: "Élevée", raison: "masse salariale enseignante : coût récurrent en milliards" },
+  p31: { niveau: "Faible", raison: "organisation matérielle d'une primaire" },
+  p32: { niveau: "Élevée", raison: "TVA à 0 % : dérogations UE requises + coût budgétaire élevé" },
+  p33: { niveau: "Moyenne", raison: "coût (~700 M€/an) assumé, montage administratif nouveau" },
+  p34: { niveau: "Très élevée", raison: "9,5 Md€/an + taxe à 100 % contestable sur les héritages" },
+  p35: { niveau: "Élevée", raison: "blocage des prix : droit de la concurrence UE à contourner" },
+  p36: { niveau: "Moyenne", raison: "fonctionnement existant (pass) à généraliser et subventionner" },
+  p37: { niveau: "Élevée", raison: "trou de financement Sécu (~90 Md€) à couvrir intégralement" },
+  p38: { niveau: "Faible", raison: "mesures fiscales et extension d'un dispositif existant" },
+  p39: { niveau: "Moyenne", raison: "lois de réforme, mais leviers réglementaires connus" },
+  p40: { niveau: "Très élevée", raison: "nationalisation d'une multinationale : droit UE, arbitrages internationaux, indemnités" },
+  p41: { niveau: "Faible", raison: "prise de position personnelle" },
+  p42: { niveau: "Très élevée", raison: "réforme des retraites complète + transition financière coûteuse" },
+  p43: { niveau: "Moyenne", raison: "paramètres techniques de pénibilité à définir" },
+  p44: { niveau: "Moyenne", raison: "juridiquement simple, mais conflit social et constitutionnel annoncé" },
+  p45: { niveau: "Moyenne", raison: "volonté politique forte, capacité d'hébergement à mobiliser en 3 semaines" },
+  p46: { niveau: "Moyenne", raison: "critères « politisés » juridiquement délicats à définir" },
+  p47: { niveau: "Élevée", raison: "« priorité nationale » suspectée inconstitutionnelle ; fin de la SRU légère mais combative" },
+  p48: { niveau: "Élevée", raison: "réquisition : empiète sur le droit de propriété, contentieux probable" },
+  p49: { niveau: "Faible", raison: "publication d'un programme" },
+  p50: { niveau: "Moyenne", raison: "procédure de loi organique lourde mais éprouvée" },
+  p51: { niveau: "Élevée", raison: "referendum programmatique + vote à 16 ans : révision constitutionnelle" },
+  p52: { niveau: "Élevée", raison: "rater l'objectif actuel d'un demi-plan annuel ; 10 Md€/an à inscrire" },
+  p53: { niveau: "Moyenne", raison: "capitalisation publique existante (Bpifrance) à brancher" },
+  p54: { niveau: "Élevée", raison: "doublement de la construction + plan scolaire massif" },
+  p55: { niveau: "Moyenne", raison: "ordonnances et changement d'usage, freins réglementaires ZAN" },
+  p56: { niveau: "Très élevée", raison: "400 000 logements/an : près du double des records actuels" },
+  p57: { niveau: "Moyenne", raison: "leviers connus (normes, délais, exonérations) à enchaîner" },
+  p58: { niveau: "Élevée", raison: "rénovation à 500 000/an (triple) + quota SRU opposable" },
+  p59: { niveau: "Moyenne", raison: "relevé du Smic léalisable avec dispositifs TPE/PME à bâtir" },
+  p60: { niveau: "Faible", raison: "manceuvre d'alliance intra-gauche" },
+  p61: { niveau: "Élevée", raison: "dispositions DSA européennes/OCompact à surmonter" },
+  p62: { niveau: "Élevée", raison: "5-7 Md€/an subventionnés + intégration d'un champ pétrolier public" },
+  p63: { niveau: "Faible", raison: "parrainage d'élu, processus connu" },
+  p64: { niveau: "Moyenne", raison: "loi de gouvernance à calibrer avec le droit européen" },
+  p65: { niveau: "Faible", raison: "demande de chiffrage parlementaire" },
+  p66: { niveau: "Faible", raison: "calendrier interne du parti" },
+  p67: { niveau: "Faible", raison: "ralliement politique déjà acté" },
+  p68: { niveau: "Faible", raison: "engagement de campagne entre candidats" }
+};
+function difficulte(p) { return p.difficulte || DIFFICULTE[p.id] || null; }
+
 // ============ ÉTAT ============
 var state = { tab: "themes", theme: THEMES[0].id, cand: CANDIDATES[0].id };
 var props = (function () {
@@ -561,6 +612,14 @@ function card(p) {
     }
     chf += "</div>";
   }
+  var d = difficulte(p);
+  if (d) {
+    var dcol = { "Faible": ["#f0fdf4", "#166534", "#bbf7d0"],
+                 "Moyenne": ["#eff6ff", "#1e40af", "#bfdbfe"],
+                 "Élevée": ["#fff7ed", "#9a3412", "#fed7aa"],
+                 "Très élevée": ["#fef2f2", "#991b1b", "#fecaca"] }[d.niveau] || ["#f8fafc", "#475569", "#e2e8f0"];
+    chf += '<span class="chiffre" style="background:' + dcol[0] + ';color:' + dcol[1] + ';border-color:' + dcol[2] + '">🛠️ Mise en œuvre : <b>' + esc(d.niveau) + "</b>" + (d.raison ? " · " + esc(d.raison) : "") + "</span>";
+  }
   var del = p.mine ? '<button class="del" title="Supprimer" onclick="removeProp(\'' + p.id + '\')">✕</button>' : "";
   var badge = p.mine ? '<span class="badge">ma note</span>' : "";
   return '<div class="card">' + del +
@@ -587,6 +646,8 @@ function render() {
     var t = theme(state.theme);
     html += "<h2>" + t.icon + " " + t.label + " — propositions</h2>";
     var list = props.filter(function (p) { return p.themeId === state.theme; });
+    var order = {}; for (var k = 0; k < CANDIDATES.length; k++) order[CANDIDATES[k].id] = k;
+    list.sort(function (a, b) { return (order[a.candidateId] ?? 999) - (order[b.candidateId] ?? 999); });
     html += '<div class="grid">';
     for (var i = 0; i < list.length; i++) html += card(list[i]);
     html += "</div>";
